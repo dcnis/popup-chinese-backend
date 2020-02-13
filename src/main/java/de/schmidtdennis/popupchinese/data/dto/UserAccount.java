@@ -21,10 +21,10 @@ public class UserAccount {
     }
 
     @Id
-    @GeneratedValue(generator = "user_id_seq", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "useraccount_id_seq", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator( 
-        name = "user_id_seq", 
-        sequenceName = "user_id_seq", 
+        name = "useraccount_id_seq", 
+        sequenceName = "useraccount_id_seq", 
         allocationSize = 50
     )
     public Integer id;
