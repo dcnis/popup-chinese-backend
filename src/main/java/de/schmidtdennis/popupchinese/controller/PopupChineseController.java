@@ -8,7 +8,7 @@ public class PopupChineseController {
 
     @GetMapping("/")
     public String getHello(){
-        return "Hallo World";
+        return "Hello World";
     }
 
 }
