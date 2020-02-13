@@ -22,7 +22,7 @@ public class User {
 
     @Id
     @GeneratedValue(generator = "user_id_seq", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(
+    @SequenceGenerator( 
         name = "user_id_seq", 
         sequenceName = "user_id_seq", 
         allocationSize = 50
