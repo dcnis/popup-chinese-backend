@@ -1,13 +1,13 @@
-package de.schmidtdennis.popupchinese;
+// package de.schmidtdennis.popupchinese;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class PopupChineseApplicationTests {
+// @SpringBootTest
+// class PopupChineseApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }
