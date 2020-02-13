@@ -10,11 +10,11 @@ import lombok.Data;
 
 @Entity
 @Data
-public class User {
+public class UserAccount {
 
-    protected User(){}
+    protected UserAccount(){}
 
-    public User(String name, String firstName, String email){
+    public UserAccount(String name, String firstName, String email){
         this.name = name;
         this.firstName = firstName;
         this.email = email;

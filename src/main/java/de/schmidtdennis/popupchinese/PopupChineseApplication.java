@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import de.schmidtdennis.popupchinese.data.dto.User;
+import de.schmidtdennis.popupchinese.data.dto.UserAccount;
 import de.schmidtdennis.popupchinese.data.repository.UserRepository;
 
 @SpringBootApplication
@@ -18,8 +18,8 @@ public class PopupChineseApplication {
 	@Bean
 	ApplicationRunner applicationRunner(UserRepository UserRepository){
 		return (args) -> {
-			UserRepository.save(new User("Schmidt", "Dennis", "bgk.dennis@yahoo.de"));
-			UserRepository.save(new User("Liu", "Yang", "yangliucello@gmail.com"));
+			UserRepository.save(new UserAccount("Schmidt", "Dennis", "bgk.dennis@yahoo.de"));
+			UserRepository.save(new UserAccount("Liu", "Yang", "yangliucello@gmail.com"));
 		};
 		
 	}
