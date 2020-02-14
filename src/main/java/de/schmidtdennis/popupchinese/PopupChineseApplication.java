@@ -15,13 +15,13 @@ public class PopupChineseApplication {
 		SpringApplication.run(PopupChineseApplication.class, args);
 	}
 
-	@Bean
-	ApplicationRunner applicationRunner(UserRepository UserRepository){
-		return (args) -> {
-			UserRepository.save(new UserAccount("Schmidt", "Dennis", "bgk.dennis@yahoo.de"));
-			UserRepository.save(new UserAccount("Liu", "Yang", "yangliucello@gmail.com"));
-		};
+	// @Bean
+	// ApplicationRunner applicationRunner(UserRepository UserRepository){
+	// 	return (args) -> {
+	// 		UserRepository.save(new UserAccount("Schmidt", "Dennis", "bgk.dennis@yahoo.de"));
+	// 		UserRepository.save(new UserAccount("Liu", "Yang", "yangliucello@gmail.com"));
+	// 	};
 		
-	}
+	// }
 
 }
