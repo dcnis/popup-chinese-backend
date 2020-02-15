@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import de.schmidtdennis.popupchinese.data.dto.Lesson;
+import de.schmidtdennis.popupchinese.data.dto.Lessons;
 import de.schmidtdennis.popupchinese.data.dto.UserAccount;
 import de.schmidtdennis.popupchinese.data.repository.LessonRepository;
 import de.schmidtdennis.popupchinese.data.repository.UserRepository;
