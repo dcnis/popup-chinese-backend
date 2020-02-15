@@ -1,14 +1,11 @@
 package de.schmidtdennis.popupchinese.data.dto;
 
-import javax.persistence.Entity;
-
 import lombok.Data;
 
 /**
  * TranscriptItem
  */
 
-@Entity
 @Data
 public class TranscriptItem {
 

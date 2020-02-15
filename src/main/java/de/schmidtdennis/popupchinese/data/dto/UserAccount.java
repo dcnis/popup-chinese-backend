@@ -27,7 +27,6 @@ public class UserAccount {
         sequenceName = "user_account_id_seq", 
         allocationSize = 50
     )
-    
     public Integer id;
     public String name;
     public String firstName;
