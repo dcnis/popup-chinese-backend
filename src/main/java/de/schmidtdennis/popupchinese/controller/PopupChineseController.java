@@ -33,7 +33,8 @@ public class PopupChineseController {
 
     @GetMapping("getLessons")
     public Iterable<Lessons> getLessons(){
-        return lessonRepository.findAll();
+        Iterable<Lessons> lessons = lessonRepository.findAll();
+        return lessons;
     }
 
 }

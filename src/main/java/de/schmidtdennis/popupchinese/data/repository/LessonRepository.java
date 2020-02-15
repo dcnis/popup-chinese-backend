@@ -1,5 +1,7 @@
 package de.schmidtdennis.popupchinese.data.repository;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 import de.schmidtdennis.popupchinese.data.dto.Lessons;;
@@ -10,5 +12,6 @@ import de.schmidtdennis.popupchinese.data.dto.Lessons;;
 
 public interface LessonRepository extends CrudRepository<Lessons, Long> {
 
+    List<Lessons> findById(Integer id);
     
 }
