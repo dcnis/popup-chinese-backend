@@ -1,5 +1,7 @@
 package de.schmidtdennis.popupchinese.data.dto;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 /**
@@ -7,7 +9,7 @@ import lombok.Data;
  */
 
 @Data
-public class TranscriptItem {
+public class TranscriptItem implements Serializable {
 
     public String line;
     public String pinyin;

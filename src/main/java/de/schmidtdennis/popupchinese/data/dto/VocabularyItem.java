@@ -1,9 +1,15 @@
 package de.schmidtdennis.popupchinese.data.dto;
 
+import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-public class VocabularyItem {
+@AllArgsConstructor
+@NoArgsConstructor
+public class VocabularyItem implements Serializable {
 
     public Integer id;
     public String typ;
