@@ -32,7 +32,7 @@ public class Lessons {
     public String title;
     public String discussion;
 
-    // @ElementCollection(targetClass=VocabularyItem.class)
+    @ElementCollection(targetClass=VocabularyItem.class)
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     public List<VocabularyItem> vocabulary;
@@ -40,7 +40,7 @@ public class Lessons {
     public String difficulty;
     public String thumbnail;
 
-    // @ElementCollection(targetClass=TranscriptItem.class)
+    @ElementCollection(targetClass=TranscriptItem.class)
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     public List<TranscriptItem> transcript;
