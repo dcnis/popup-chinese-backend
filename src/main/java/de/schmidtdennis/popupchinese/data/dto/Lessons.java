@@ -31,7 +31,7 @@ public class Lessons {
         name = "lessons_id_seq",
         sequenceName = "lessons_id_seq", 
         allocationSize = 50
-    )
+    ) 
     public Integer id;
     public String title;
     public String discussion;
