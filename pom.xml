@@ -53,6 +53,12 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.vladmihalcea</groupId>
+			<artifactId>hibernate-types-52</artifactId>
+			<version>2.9.3</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
