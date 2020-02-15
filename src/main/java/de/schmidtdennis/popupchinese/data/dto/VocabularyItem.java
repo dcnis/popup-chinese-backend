@@ -13,6 +13,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class VocabularyItem implements Serializable {
 
+    /**
+     *
+     */ 
+    private static final long serialVersionUID = 1L;
     public Integer id;
     @JsonProperty("type")
     public String typ;
