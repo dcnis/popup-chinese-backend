@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Lesson {
+public class Lessons {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lessons_id_seq")
