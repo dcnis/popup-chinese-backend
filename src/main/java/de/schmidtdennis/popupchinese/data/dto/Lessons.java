@@ -45,6 +45,8 @@ public class Lessons {
     public String thumbnail;
 
     @ElementCollection(targetClass=TranscriptItem.class)
+    @Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
     public List<TranscriptItem> transcript;
     
 
