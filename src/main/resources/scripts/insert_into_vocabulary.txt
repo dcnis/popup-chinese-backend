@@ -1,0 +1,587 @@
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'noun', 'Tàitǎnníkè hào', '泰坦尼克号', 'Titanic', 1
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'pronoun', 'zánmen', '咱们', 'we', 2
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1, 'noun', 'hǎishuǐ', '海水', 'seawater', 3
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'noun', 'bīngchuān', '冰川', 'glacier (colloquially iceberg as well)', 4
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'noun', 'bīngshān', '冰山', 'iceberg', 5
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'measure word', 'zuò', '座', 'large geographic objects', 6
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'verb', 'táoshēng', '逃生', 'to escape with ones life', 7
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'noun', 'tóuděngcāng', '头等舱', 'first class', 8
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'noun', 'jiùshēngtǐng', '救生艇', 'lifeboat', 9
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'verb', 'guài', '怪', 'to blame', 10
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'noun', 'sānděngcāng', '三等舱', 'third class cabin', 11
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'verb', 'qiǎng', '抢', 'to rob', 12
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'verb', 'shènshuǐ', '渗水', 'to sink under water', 13
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (1,
+	   'adjective', 'cì', '次', 'poor quality', 14
+	   );
+
+
+
+
+
+
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'noun', 'Tàitǎnníkè hào', '泰坦尼克号', 'Titanic', 1
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'pronoun', 'zánmen', '咱们', 'we', 2
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2, 'noun', 'hǎishuǐ', '海水', 'seawater', 3
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'noun', 'bīngchuān', '冰川', 'glacier (colloquially iceberg as well)', 4
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'noun', 'bīngshān', '冰山', 'iceberg', 5
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'measure word', 'zuò', '座', 'large geographic objects', 6
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'verb', 'táoshēng', '逃生', 'to escape with ones life', 7
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'noun', 'tóuděngcāng', '头等舱', 'first class', 8
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'noun', 'jiùshēngtǐng', '救生艇', 'lifeboat', 9
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'verb', 'guài', '怪', 'to blame', 10
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'noun', 'sānděngcāng', '三等舱', 'third class cabin', 11
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'verb', 'qiǎng', '抢', 'to rob', 12
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'verb', 'shènshuǐ', '渗水', 'to sink under water', 13
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (2,
+	   'adjective', 'cì', '次', 'poor quality', 14
+	   );
+
+
+
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'noun', 'Tàitǎnníkè hào', '泰坦尼克号', 'Titanic', 1
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'pronoun', 'zánmen', '咱们', 'we', 2
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3, 'noun', 'hǎishuǐ', '海水', 'seawater', 3
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'noun', 'bīngchuān', '冰川', 'glacier (colloquially iceberg as well)', 4
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'noun', 'bīngshān', '冰山', 'iceberg', 5
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'measure word', 'zuò', '座', 'large geographic objects', 6
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'verb', 'táoshēng', '逃生', 'to escape with ones life', 7
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'noun', 'tóuděngcāng', '头等舱', 'first class', 8
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'noun', 'jiùshēngtǐng', '救生艇', 'lifeboat', 9
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'verb', 'guài', '怪', 'to blame', 10
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'noun', 'sānděngcāng', '三等舱', 'third class cabin', 11
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'verb', 'qiǎng', '抢', 'to rob', 12
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'verb', 'shènshuǐ', '渗水', 'to sink under water', 13
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (3,
+	   'adjective', 'cì', '次', 'poor quality', 14
+	   );
+
+
+
+
+
+
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'noun', 'Tàitǎnníkè hào', '泰坦尼克号', 'Titanic', 1
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'pronoun', 'zánmen', '咱们', 'we', 2
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4, 'noun', 'hǎishuǐ', '海水', 'seawater', 3
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'noun', 'bīngchuān', '冰川', 'glacier (colloquially iceberg as well)', 4
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'noun', 'bīngshān', '冰山', 'iceberg', 5
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'measure word', 'zuò', '座', 'large geographic objects', 6
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'verb', 'táoshēng', '逃生', 'to escape with ones life', 7
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'noun', 'tóuděngcāng', '头等舱', 'first class', 8
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'noun', 'jiùshēngtǐng', '救生艇', 'lifeboat', 9
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'verb', 'guài', '怪', 'to blame', 10
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'noun', 'sānděngcāng', '三等舱', 'third class cabin', 11
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'verb', 'qiǎng', '抢', 'to rob', 12
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'verb', 'shènshuǐ', '渗水', 'to sink under water', 13
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (4,
+	   'adjective', 'cì', '次', 'poor quality', 14
+	   );
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'noun', 'Tàitǎnníkè hào', '泰坦尼克号', 'Titanic', 1
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'pronoun', 'zánmen', '咱们', 'we', 2
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5, 'noun', 'hǎishuǐ', '海水', 'seawater', 3
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'noun', 'bīngchuān', '冰川', 'glacier (colloquially iceberg as well)', 4
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'noun', 'bīngshān', '冰山', 'iceberg', 5
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'measure word', 'zuò', '座', 'large geographic objects', 6
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'verb', 'táoshēng', '逃生', 'to escape with ones life', 7
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'noun', 'tóuděngcāng', '头等舱', 'first class', 8
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'noun', 'jiùshēngtǐng', '救生艇', 'lifeboat', 9
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'verb', 'guài', '怪', 'to blame', 10
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'noun', 'sānděngcāng', '三等舱', 'third class cabin', 11
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'verb', 'qiǎng', '抢', 'to rob', 12
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'verb', 'shènshuǐ', '渗水', 'to sink under water', 13
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (5,
+	   'adjective', 'cì', '次', 'poor quality', 14
+	   );
+	   
+	   
+	   
+	   
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'noun', 'Tàitǎnníkè hào', '泰坦尼克号', 'Titanic', 1
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'pronoun', 'zánmen', '咱们', 'we', 2
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6, 'noun', 'hǎishuǐ', '海水', 'seawater', 3
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'noun', 'bīngchuān', '冰川', 'glacier (colloquially iceberg as well)', 4
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'noun', 'bīngshān', '冰山', 'iceberg', 5
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'measure word', 'zuò', '座', 'large geographic objects', 6
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'verb', 'táoshēng', '逃生', 'to escape with ones life', 7
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'noun', 'tóuděngcāng', '头等舱', 'first class', 8
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'noun', 'jiùshēngtǐng', '救生艇', 'lifeboat', 9
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'verb', 'guài', '怪', 'to blame', 10
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'noun', 'sānděngcāng', '三等舱', 'third class cabin', 11
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'verb', 'qiǎng', '抢', 'to rob', 12
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'verb', 'shènshuǐ', '渗水', 'to sink under water', 13
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (6,
+	   'adjective', 'cì', '次', 'poor quality', 14
+	   );
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'noun', 'Tàitǎnníkè hào', '泰坦尼克号', 'Titanic', 1
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'pronoun', 'zánmen', '咱们', 'we', 2
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7, 'noun', 'hǎishuǐ', '海水', 'seawater', 3
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'noun', 'bīngchuān', '冰川', 'glacier (colloquially iceberg as well)', 4
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'noun', 'bīngshān', '冰山', 'iceberg', 5
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'measure word', 'zuò', '座', 'large geographic objects', 6
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'verb', 'táoshēng', '逃生', 'to escape with ones life', 7
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'noun', 'tóuděngcāng', '头等舱', 'first class', 8
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'noun', 'jiùshēngtǐng', '救生艇', 'lifeboat', 9
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'verb', 'guài', '怪', 'to blame', 10
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'noun', 'sānděngcāng', '三等舱', 'third class cabin', 11
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'verb', 'qiǎng', '抢', 'to rob', 12
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'verb', 'shènshuǐ', '渗水', 'to sink under water', 13
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (7,
+	   'adjective', 'cì', '次', 'poor quality', 14
+	   );
+	   
+	   
+	   
+	   
+	   
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'noun', 'Tàitǎnníkè hào', '泰坦尼克号', 'Titanic', 1
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'pronoun', 'zánmen', '咱们', 'we', 2
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8, 'noun', 'hǎishuǐ', '海水', 'seawater', 3
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'noun', 'bīngchuān', '冰川', 'glacier (colloquially iceberg as well)', 4
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'noun', 'bīngshān', '冰山', 'iceberg', 5
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'measure word', 'zuò', '座', 'large geographic objects', 6
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'verb', 'táoshēng', '逃生', 'to escape with ones life', 7
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'noun', 'tóuděngcāng', '头等舱', 'first class', 8
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'noun', 'jiùshēngtǐng', '救生艇', 'lifeboat', 9
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'verb', 'guài', '怪', 'to blame', 10
+	   );
+	   
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'noun', 'sānděngcāng', '三等舱', 'third class cabin', 11
+	   );
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'verb', 'qiǎng', '抢', 'to rob', 12
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'verb', 'shènshuǐ', '渗水', 'to sink under water', 13
+	   );  
+
+insert into vocabulary (lesson_id, typ, pinyin, chinese, english, vocabulary_order)
+values (8,
+	   'adjective', 'cì', '次', 'poor quality', 14
+	   );
