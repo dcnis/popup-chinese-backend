@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.schmidtdennis.popupchinese.data.dto.Dialogs;
 import de.schmidtdennis.popupchinese.data.dto.Lessons;
 import de.schmidtdennis.popupchinese.data.dto.UserAccount;
+import de.schmidtdennis.popupchinese.data.repository.DialogsRepository;
 import de.schmidtdennis.popupchinese.data.repository.LessonRepository;
 import de.schmidtdennis.popupchinese.data.repository.UserRepository;
 
@@ -15,11 +17,17 @@ public class PopupChineseController {
 
     private final UserRepository userRepository;
     private final LessonRepository lessonRepository;
+    private final DialogsRepository dialogsRepository; 
 
     @Autowired
-    public PopupChineseController(UserRepository userRepository, LessonRepository lessonRepository) {
+    public PopupChineseController(
+        UserRepository userRepository, 
+        LessonRepository lessonRepository,
+        DialogsRepository dialogsRepository
+    ) {
         this.userRepository = userRepository;
         this.lessonRepository = lessonRepository;
+        this.dialogsRepository = dialogsRepository;
     }
 
     @GetMapping("/")
@@ -42,6 +50,11 @@ public class PopupChineseController {
     public Lessons getLesson(@PathVariable Integer id) {
         Lessons lesson = lessonRepository.findById(id);
         return lesson;
+    }
+
+    @GetMapping("findDialogsByLessonId/{lessonId}")
+    public Iterable<Dialogs> findDialogsByLessonId(@PathVariable Integer lessonId) {
+        return dialogsRepository.findDialogsByLessonId(lessonId);
     }
 
 }
