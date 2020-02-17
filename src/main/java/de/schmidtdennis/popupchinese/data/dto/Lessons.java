@@ -13,8 +13,7 @@ import lombok.Data;
 public class Lessons {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lessons_id_seq")
-    @SequenceGenerator(name = "lessons_id_seq", sequenceName = "lessons_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Integer id;
     public String title;
     public String discussion;
