@@ -1,23 +1,33 @@
-// package de.schmidtdennis.popupchinese.data.dto;
+package de.schmidtdennis.popupchinese.data.dto;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-// import lombok.AllArgsConstructor;
-// import lombok.Data;
-// import lombok.NoArgsConstructor;
+import lombok.Data;
 
-// /**
-//  * Dialogs
-//  */
+/**
+ * Dialogs
+ */
 
-// @Data
-// @AllArgsConstructor
-// @NoArgsConstructor
-// public class Dialogs {
+@Data
+public class Dialogs {
 
-//     public String line;
-//     public String pinyin;
-//     public String chinese;
-//     public String english;
-//     public String speaker;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "dialog_id")
+    public Integer dialogId;
+
+    @Column(name = "lesson_id")
+    public Integer lessonId;
+
+    @Column(name = "dialog_order")
+    public Integer dialogOrder;
+
+    public String pinyin;
+    public String chinese;
+    public String english;
+    public String speaker;
     
-// }
+}
