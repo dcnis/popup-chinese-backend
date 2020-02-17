@@ -16,7 +16,7 @@ public class Lessons {
     public Integer id;
     public String title;
     public String discussion;
-    public String difficulty;
+    public Integer difficulty;
     public String thumbnail;
     
 

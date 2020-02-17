@@ -1,16 +1,19 @@
 package de.schmidtdennis.popupchinese.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import de.schmidtdennis.popupchinese.data.dto.Dialogs;
 import de.schmidtdennis.popupchinese.data.dto.Lessons;
 import de.schmidtdennis.popupchinese.data.dto.UserAccount;
 import de.schmidtdennis.popupchinese.data.repository.DialogsRepository;
 import de.schmidtdennis.popupchinese.data.repository.LessonRepository;
 import de.schmidtdennis.popupchinese.data.repository.UserRepository;
+import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
 
 @RestController
 public class PopupChineseController {
@@ -52,9 +55,16 @@ public class PopupChineseController {
         return lesson;
     }
 
-    @GetMapping("findDialogsByLessonId/{lessonId}")
-    public Iterable<Dialogs> findDialogsByLessonId(@PathVariable Integer lessonId) {
-        return dialogsRepository.findDialogsByLessonId(lessonId);
+    @GetMapping("getDialogsByLessonId/{lessonId}")
+    public Iterable<Dialogs> getDialogsByLessonId(@PathVariable Integer lessonId) {
+        return dialogsRepository.getByLessonId(lessonId);
+    }
+
+    @PostMapping("findLessonsByDifficulty")
+    public List<Lessons> findLessonsByDifficulty(
+        @RequestBody DifficultyRequest request){
+
+        return lessonRepository.findByDifficulty(request.difficulty);
     }
 
 }

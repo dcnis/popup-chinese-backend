@@ -14,6 +14,6 @@ import de.schmidtdennis.popupchinese.data.dto.Dialogs;
 public interface DialogsRepository extends CrudRepository<Dialogs, Long> {
 
     @Query("SELECT d FROM Dialogs d where d.lessonId = :lessonId")
-    Iterable<Dialogs> findDialogsByLessonId(@Param("lessonId") Integer lessonId);
+    Iterable<Dialogs> getByLessonId(@Param("lessonId") Integer lessonId);
 
 }
