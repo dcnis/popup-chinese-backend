@@ -12,6 +12,6 @@ import de.schmidtdennis.popupchinese.data.dto.Lessons;;
 
 public interface LessonRepository extends CrudRepository<Lessons, Long> {
 
-    List<Lessons> findById(Integer id);
+    Lessons findById(Integer id);
     
 }

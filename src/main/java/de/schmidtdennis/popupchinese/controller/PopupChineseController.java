@@ -2,6 +2,7 @@ package de.schmidtdennis.popupchinese.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import de.schmidtdennis.popupchinese.data.dto.Lessons;
@@ -35,6 +36,12 @@ public class PopupChineseController {
     public Iterable<Lessons> getLessons(){
         Iterable<Lessons> lessons = lessonRepository.findAll();
         return lessons;
+    }
+
+    @GetMapping("getLesson/{id}")
+    public Lessons getLesson(@PathVariable Integer id) {
+        Lessons lesson = lessonRepository.findById(id);
+        return lesson;
     }
 
 }
