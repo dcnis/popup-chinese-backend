@@ -1,4 +1,4 @@
 
 name: dev-yaml
   
-spring.jpa.hibernate.use-new-id-generator-mappings
+spring.jpa.hibernate.use-new-id-generator-mappings: true
