@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import de.schmidtdennis.popupchinese.data.dto.Dialogs;
 import de.schmidtdennis.popupchinese.data.dto.Lessons;
 import de.schmidtdennis.popupchinese.data.dto.UserAccount;
+import de.schmidtdennis.popupchinese.data.dto.Vocabulary;
 import de.schmidtdennis.popupchinese.data.repository.DialogsRepository;
 import de.schmidtdennis.popupchinese.data.repository.LessonRepository;
 import de.schmidtdennis.popupchinese.data.repository.UserRepository;
+import de.schmidtdennis.popupchinese.data.repository.VocabularyRepository;
 import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
 
 @RestController
@@ -21,16 +23,19 @@ public class PopupChineseController {
     private final UserRepository userRepository;
     private final LessonRepository lessonRepository;
     private final DialogsRepository dialogsRepository; 
+    private final VocabularyRepository vocabularyRepository;
 
     @Autowired
     public PopupChineseController(
         UserRepository userRepository, 
         LessonRepository lessonRepository,
-        DialogsRepository dialogsRepository
+        DialogsRepository dialogsRepository,
+        VocabularyRepository vocabularyRepository
     ) {
         this.userRepository = userRepository;
         this.lessonRepository = lessonRepository;
         this.dialogsRepository = dialogsRepository;
+        this.vocabularyRepository = vocabularyRepository;
     }
 
     @GetMapping("/")
@@ -65,6 +70,11 @@ public class PopupChineseController {
         @RequestBody DifficultyRequest request){
 
         return lessonRepository.findByDifficulty(request.difficulty);
+    }
+
+    @GetMapping("getVocabularyByLessonId/{id}")
+    public List<Vocabulary> getVocabularyByLessonId(@PathVariable Integer id){
+        return vocabularyRepository.findByLessonIdOrderByVocabularyIdAsc(id);
     }
 
 }

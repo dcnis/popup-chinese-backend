@@ -1,18 +1,30 @@
-// package de.schmidtdennis.popupchinese.data.dto;
+package de.schmidtdennis.popupchinese.data.dto;
 
-// import lombok.AllArgsConstructor;
-// import lombok.Data;
-// import lombok.NoArgsConstructor;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import lombok.Data;
 
-// @Data
-// @AllArgsConstructor
-// @NoArgsConstructor
-// public class Vocabulary {
+@Entity
+@Data
+public class Vocabulary {
 
-//     public Integer id;
-//     public String typ;
-//     public String pinyin; 
-//     public String chinese;
-//     public String english;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "vocabulary_id")
+    public Integer vocabularyId;
 
-// }
+    @Column(name = "lesson_id")
+    public Integer lessonId;
+
+    public String typ;
+    public String pinyin; 
+    public String chinese;
+    public String english;
+    
+    @Column(name = "vocabulary_order")
+    public Integer vocabularyOrder;
+
+}
