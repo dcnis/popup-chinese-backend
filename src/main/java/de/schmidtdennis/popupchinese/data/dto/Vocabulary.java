@@ -19,8 +19,7 @@ public class Vocabulary {
     @Column(name = "vocabulary_id")
     public Integer vocabularyId;
 
-    @ManyToOne(targetEntity = Lessons.class)
-    @JoinColumn(name = "lesson_id")
+    @Column(name = "lesson_id")
     public Integer lessonId;
 
     public String typ;

@@ -11,27 +11,27 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity
+@Entity(name = "Lessons")
 @Data
+@Table(name = "lessons")
 public class Lessons {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Integer id;
+
     public String title;
 
     public String discussion;
 
-    @OneToOne
-    @JoinColumn(referencedColumnName = "id")
-    public Difficulties difficulty;
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id", name = "difficulty")
+    private Difficulties difficulty;
     
     public String thumbnail;
-
-    @OneToMany(mappedBy = "lessonId")
-    public List<Vocabulary> vocabulary;
 
 }
