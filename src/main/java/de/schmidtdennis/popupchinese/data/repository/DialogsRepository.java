@@ -16,4 +16,5 @@ public interface DialogsRepository extends CrudRepository<Dialogs, Long> {
     @Query("SELECT d FROM Dialogs d where d.lessonId = :lessonId")
     Iterable<Dialogs> getByLessonId(@Param("lessonId") Integer lessonId);
 
+    
 }

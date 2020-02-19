@@ -71,7 +71,7 @@ public class PopupChineseController {
     public List<Lessons> findLessonsByDifficulty(
         @RequestBody DifficultyRequest request){
 
-        return lessonRepository.findByDifficulty(request.difficulty);
+        return lessonRepository.findBySearchedDifficulty(request.difficulty);
     }
 
     @GetMapping("getVocabularyByLessonId/{id}")
