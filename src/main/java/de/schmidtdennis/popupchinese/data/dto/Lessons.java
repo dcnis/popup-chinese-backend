@@ -28,7 +28,7 @@ public class Lessons {
     
     public String thumbnail;
 
-    @OneToMany(mappedBy = "lesson_id")
+    @OneToMany(mappedBy = "lessonId")
     public List<Vocabulary> vocabulary;
 
 }
