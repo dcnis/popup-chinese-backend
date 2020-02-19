@@ -23,7 +23,7 @@ public class Lessons {
 
     public String discussion;
 
-    @OneToOne
+    @OneToOne(targetEntity = Difficulties.class)
     public Integer difficulty;
     
     public String thumbnail;
