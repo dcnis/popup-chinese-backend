@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import lombok.Data;
 
 @Entity
@@ -16,6 +18,7 @@ public class Vocabulary {
     @Column(name = "vocabulary_id")
     public Integer vocabularyId;
 
+    @ManyToOne
     @Column(name = "lesson_id")
     public Integer lessonId;
 

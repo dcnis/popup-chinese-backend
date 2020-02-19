@@ -19,6 +19,7 @@ import de.schmidtdennis.popupchinese.data.repository.VocabularyRepository;
 import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 public class PopupChineseController {
 
     private final UserRepository userRepository;
@@ -66,7 +67,6 @@ public class PopupChineseController {
         return dialogsRepository.getByLessonId(lessonId);
     }
 
-    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping("findLessonsByDifficulty")
     public List<Lessons> findLessonsByDifficulty(
         @RequestBody DifficultyRequest request){
