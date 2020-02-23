@@ -7,11 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity
+@Entity(name = "Vocabulary")
 @Data
+@Table(name = "vocabulary")
 public class Vocabulary {
 
     @Id
@@ -19,9 +21,7 @@ public class Vocabulary {
     @Column(name = "vocabulary_id")
     public Integer vocabularyId;
 
-    @Column(name = "lesson_id")
     public Integer lessonId;
-
     public String typ;
     public String pinyin; 
     public String chinese;

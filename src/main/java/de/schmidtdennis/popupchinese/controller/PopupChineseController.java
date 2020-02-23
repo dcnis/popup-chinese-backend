@@ -40,11 +40,6 @@ public class PopupChineseController {
         this.vocabularyRepository = vocabularyRepository;
     }
 
-    @GetMapping("/")
-    public String getHello(){
-        return "Hello World";
-    }
-
     @GetMapping("/getUsers")
     public Iterable<UserAccount> getUsers(){
         return userRepository.findAll();

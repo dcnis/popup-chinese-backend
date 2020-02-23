@@ -7,7 +7,23 @@ spring:
     username: fqrbhhetzxifkk
     password: 4df081108851964a2eb51834da5089489d18e65f0608b4a1f9433d33170907a2
   jpa:
-    properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
     hibernate:
       ddl-auto: update
       use-new-id-generator-mappings: true
+    show-sql: true
+
+
+okta:  
+  oauth2:  
+    issuer: https://dev-137527.okta.com/oauth2/default
+    client-id: 0oa2ibx8wdHZ7tg2n4x6
+    scopes: openid,profile,email
+
+
+logging.level.org.hibernate.SQL: DEBUG
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
