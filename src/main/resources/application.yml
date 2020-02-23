@@ -21,7 +21,7 @@ okta:
   oauth2:  
     issuer: https://dev-137527.okta.com/oauth2/default
     client-id: 0oa2ibx8wdHZ7tg2n4x6
-    scopes: openid,profile,email
+    scopes: openid profile email
 
 
 logging.level.org.hibernate.SQL: DEBUG
