@@ -36,17 +36,21 @@ public class PopupChineseApplication {
             .and()
             .oauth2ResourceServer().jwt();
             http.cors();
+                        
+            // force a non-empty response body for 401's to make the response more browser friendly
+            Okta.configureResourceServer401ResponseBody(http);
+            
         }
 
-        @Bean
-        CorsConfigurationSource corsConfigurationSource() {
-            CorsConfiguration configuration = new CorsConfiguration();
-            configuration.setAllowedOrigins(Arrays.asList("https://heroku-popup-chinese-frontend.herokuapp.com"));
-            configuration.setAllowedMethods(Arrays.asList("GET","POST"));
-            UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-            source.registerCorsConfiguration("/**", configuration);
-            return source;
-        }
+        // @Bean
+        // CorsConfigurationSource corsConfigurationSource() {
+        //     CorsConfiguration configuration = new CorsConfiguration();
+        //     configuration.setAllowedOrigins(Arrays.asList("https://heroku-popup-chinese-frontend.herokuapp.com"));
+        //     configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+        //     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        //     source.registerCorsConfiguration("/**", configuration);
+        //     return source;
+        // }
     }
 
 }
