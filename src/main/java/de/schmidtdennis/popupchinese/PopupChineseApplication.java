@@ -29,10 +29,8 @@ public class PopupChineseApplication {
             http
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
-                .cors()
-                .and()
                 .oauth2ResourceServer().jwt();
-                
+            http.cors();
             // Send a 401 message to the browser (w/o this, you'll see a blank page)
             Okta.configureResourceServer401ResponseBody(http);
         }
