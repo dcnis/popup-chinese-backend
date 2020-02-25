@@ -19,7 +19,7 @@ import de.schmidtdennis.popupchinese.data.repository.VocabularyRepository;
 import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "https://heroku-popup-chinese-frontend.herokuapp.com/")
 public class PopupChineseController {
 
     private final UserRepository userRepository;
