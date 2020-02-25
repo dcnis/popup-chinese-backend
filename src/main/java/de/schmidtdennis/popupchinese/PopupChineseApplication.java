@@ -30,11 +30,12 @@ public class PopupChineseApplication {
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http
-                .oauth2ResourceServer().jwt();
+            http.authorizeRequests()
+            // Require authentication for all requests under /api/private
+            .antMatchers("/api/private/**").authenticated()
+            .and()
+            .oauth2ResourceServer().jwt();
             http.cors();
-            // Send a 401 message to the browser (w/o this, you'll see a blank page)
-            Okta.configureResourceServer401ResponseBody(http);
         }
 
         @Bean
