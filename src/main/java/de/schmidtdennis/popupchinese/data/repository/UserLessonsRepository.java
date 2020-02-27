@@ -16,7 +16,7 @@ public interface UserLessonsRepository extends CrudRepository<UserLessons, Long>
 
     List<UserLessons> findByUserAccountId(@Param("userId") Integer userId);
 
-    @Query("SELECT u FROM UserLessons u INNER JOIN u.userAccountId ua WHERE ua.email = %:email%")
+    @Query("SELECT u FROM UserLessons u INNER JOIN u.userAccountId ua WHERE ua.email LIKE %:email%")
     List<UserLessons> findByUserEmail(@Param ("email") String searchedEmail);
 
 }
