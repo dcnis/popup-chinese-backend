@@ -87,8 +87,8 @@ public class PopupChineseController {
         return userLessonsRepository.findByUserAccountId(userId);
     }
 
-    @PostMapping("findUserLessonsByUserEmail")
-    public List<UserLessons> findUserLessonsByUserEmail(@RequestBody EmailRequest request){
+    @PostMapping("getUserLessonsByUserEmail")
+    public List<UserLessons> getUserLessonsByUserEmail(@RequestBody EmailRequest request){
         return userLessonsRepository.findByUserEmail(request.email);
     }
 }
