@@ -19,6 +19,7 @@ import de.schmidtdennis.popupchinese.data.repository.UserLessonsRepository;
 import de.schmidtdennis.popupchinese.data.repository.UserRepository;
 import de.schmidtdennis.popupchinese.data.repository.VocabularyRepository;
 import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
+import de.schmidtdennis.popupchinese.data.requests.EmailRequest;
 
 @RestController
 @CrossOrigin(
@@ -84,6 +85,11 @@ public class PopupChineseController {
     @GetMapping("getUserLessonsByUserId/{userId}")
     public List<UserLessons> getUserLessonsByUserId(@PathVariable Integer userId){
         return userLessonsRepository.findByUserAccountId(userId);
+    }
+
+    @PostMapping("findByUserEmail")
+    public List<UserLessons> findByUserEmail(@RequestBody EmailRequest request){
+        return userLessonsRepository.findByUserEmail(request.email);
     }
 
 }
