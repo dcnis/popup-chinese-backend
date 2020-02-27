@@ -2,12 +2,13 @@ package de.schmidtdennis.popupchinese.data.dto;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import lombok.Data;
 
 /**
@@ -22,7 +23,8 @@ public class UserLessons {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name = "user_account_id")
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id", name = "user_account_id")
     private Integer userAccountId;
 
     @Column(name = "lesson_id")
