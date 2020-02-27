@@ -1,7 +1,6 @@
 package de.schmidtdennis.popupchinese.data.dto;
 
-import java.util.Date;
-
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,6 +29,6 @@ public class UserLessons {
     private Integer lessonId;
 
     @Column(name = "last_seen")
-    private Date lastSeen;
+    private LocalDateTime lastSeen;
 
 }
