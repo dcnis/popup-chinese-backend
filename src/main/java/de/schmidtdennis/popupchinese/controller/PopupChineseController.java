@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import de.schmidtdennis.popupchinese.data.dto.Dialogs;
 import de.schmidtdennis.popupchinese.data.dto.Lessons;
 import de.schmidtdennis.popupchinese.data.dto.UserAccount;
+import de.schmidtdennis.popupchinese.data.dto.UserLessons;
 import de.schmidtdennis.popupchinese.data.dto.Vocabulary;
 import de.schmidtdennis.popupchinese.data.repository.DialogsRepository;
 import de.schmidtdennis.popupchinese.data.repository.LessonRepository;
+import de.schmidtdennis.popupchinese.data.repository.UserLessonsRepository;
 import de.schmidtdennis.popupchinese.data.repository.UserRepository;
 import de.schmidtdennis.popupchinese.data.repository.VocabularyRepository;
 import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
@@ -28,18 +30,21 @@ public class PopupChineseController {
     private final LessonRepository lessonRepository;
     private final DialogsRepository dialogsRepository; 
     private final VocabularyRepository vocabularyRepository;
+    private final UserLessonsRepository userLessonsRepository;
 
     @Autowired
     public PopupChineseController(
         UserRepository userRepository, 
         LessonRepository lessonRepository,
         DialogsRepository dialogsRepository,
-        VocabularyRepository vocabularyRepository
+        VocabularyRepository vocabularyRepository,
+        UserLessonsRepository userLessonsRepository
     ) {
         this.userRepository = userRepository;
         this.lessonRepository = lessonRepository;
         this.dialogsRepository = dialogsRepository;
         this.vocabularyRepository = vocabularyRepository;
+        this.userLessonsRepository = userLessonsRepository;
     }
 
     @GetMapping("/getUsers")
@@ -74,6 +79,11 @@ public class PopupChineseController {
     @GetMapping("getVocabularyByLessonId/{id}")
     public List<Vocabulary> getVocabularyByLessonId(@PathVariable Integer id){
         return vocabularyRepository.findByLessonIdOrderByVocabularyIdAsc(id);
+    }
+
+    @GetMapping("getUserLessonsByUserId/{}")
+    public List<UserLessons> getUserLessonsByUserId(@PathVariable Integer userId){
+        return userLessonsRepository.findByUserAccountId(userId);
     }
 
 }
