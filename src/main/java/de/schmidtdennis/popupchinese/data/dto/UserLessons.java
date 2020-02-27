@@ -15,7 +15,7 @@ import lombok.Data;
  * UserLessons
  */
 @Data
-@Entity
+@Entity(name = "UserLessons")
 @Table(name = "watched_user_account_lessons")
 public class UserLessons {
 
@@ -25,7 +25,7 @@ public class UserLessons {
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id", name = "user_account_id")
-    private Integer userAccountId;
+    private UserAccount userAccountId;
 
     @Column(name = "lesson_id")
     private Integer lessonId;
