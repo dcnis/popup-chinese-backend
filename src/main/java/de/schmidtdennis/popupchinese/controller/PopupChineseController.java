@@ -81,7 +81,7 @@ public class PopupChineseController {
         return vocabularyRepository.findByLessonIdOrderByVocabularyIdAsc(id);
     }
 
-    @GetMapping("getUserLessonsByUserId/{}")
+    @GetMapping("getUserLessonsByUserId/{userId}")
     public List<UserLessons> getUserLessonsByUserId(@PathVariable Integer userId){
         return userLessonsRepository.findByUserAccountId(userId);
     }
