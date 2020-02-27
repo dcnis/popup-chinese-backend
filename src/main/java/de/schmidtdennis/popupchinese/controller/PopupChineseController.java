@@ -90,5 +90,5 @@ public class PopupChineseController {
     @PostMapping("findUserLessonsByUserEmail")
     public List<UserLessons> findUserLessonsByUserEmail(@RequestBody EmailRequest request){
         return userLessonsRepository.findByUserEmail(request.email);
-
+    }
 }
