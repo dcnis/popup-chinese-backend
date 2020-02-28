@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,5 +35,9 @@ public class Lessons {
     private Difficulties difficulty;
     
     public String thumbnail;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "lessonId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public List<UserLessons> userLessons;
 
 }

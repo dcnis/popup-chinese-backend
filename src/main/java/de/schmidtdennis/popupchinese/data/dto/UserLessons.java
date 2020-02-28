@@ -27,8 +27,9 @@ public class UserLessons {
     @JoinColumn(referencedColumnName = "id", name = "user_account_id")
     private UserAccount userAccountId;
 
-    @Column(name = "lesson_id")
-    private Integer lessonId;
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id", name = "lesson_id")
+    private Lessons lessonId;
 
     @Column(name = "last_seen")
     private LocalDateTime lastSeen;
