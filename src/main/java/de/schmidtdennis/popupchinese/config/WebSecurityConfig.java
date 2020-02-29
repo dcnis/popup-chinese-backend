@@ -13,8 +13,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-            .anyRequest().authenticated()
             .antMatchers("/findLessonsByDifficulty", "/getLesson/**", "getVocabularyByLessonId/**", "getDialogsByLessonId/**").permitAll()
+            .anyRequest().authenticated()
             .and()
             .oauth2ResourceServer().jwt();
 
