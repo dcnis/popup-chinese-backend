@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 
 @Configuration
-// @EnableGlobalMethodSecurity(prePostEnabled = true) 
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             http.cors();
 
             // force a non-empty response body for 401's to make the response more browser friendly
-            Okta.configureResourceServer401ResponseBody(http);
+            // Okta.configureResourceServer401ResponseBody(http);
 
         }
         
