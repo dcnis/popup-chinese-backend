@@ -71,6 +71,7 @@ public class PopupChineseController {
         return dialogsRepository.getByLessonId(lessonId);
     }
 
+    @PreAuthorize("permitAll()")
     @PostMapping("findLessonsByDifficulty")
     public List<Lessons> findLessonsByDifficulty(
         @RequestBody DifficultyRequest request){
