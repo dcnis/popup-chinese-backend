@@ -66,13 +66,11 @@ public class PopupChineseController {
         return lesson;
     }
 
-    @PreAuthorize("permitAll()")
     @GetMapping("getDialogsByLessonId/{lessonId}")
     public Iterable<Dialogs> getDialogsByLessonId(@PathVariable Integer lessonId) {
         return dialogsRepository.getByLessonId(lessonId);
     }
 
-    @PreAuthorize("permitAll()")
     @PostMapping("findLessonsByDifficulty")
     public List<Lessons> findLessonsByDifficulty(
         @RequestBody DifficultyRequest request){
@@ -80,7 +78,6 @@ public class PopupChineseController {
         return lessonRepository.findBySearchedDifficulty(request.difficulty);
     }
 
-    @PreAuthorize("permitAll()")
     @GetMapping("getVocabularyByLessonId/{id}")
     public List<Vocabulary> getVocabularyByLessonId(@PathVariable Integer id){
         return vocabularyRepository.findByLessonIdOrderByVocabularyIdAsc(id);
