@@ -14,8 +14,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
-        protected void configure(final HttpSecurity http) throws Exception {
-            http.oauth2ResourceServer().jwt();
+        protected void configure(HttpSecurity http) throws Exception {
+            http.authorizeRequests()
+            .anyRequest().permitAll();
             // .authorizeRequests()
             // .antMatchers("/findLessonsByDifficulty", "/getLesson/**", "getVocabularyByLessonId/**", "getDialogsByLessonId/**").permitAll()
             // .anyRequest().permitAll();
