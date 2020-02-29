@@ -10,14 +10,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
         protected void configure(final HttpSecurity http) throws Exception {
-            // http.authorizeRequests()
+            http.authorizeRequests()
             // .antMatchers("/findLessonsByDifficulty", "/getLesson/**", "getVocabularyByLessonId/**", "getDialogsByLessonId/**").permitAll()
-            // .anyRequest().permitAll();
+            .anyRequest().permitAll();
             // .and()
             // .oauth2ResourceServer().jwt();
 
