@@ -15,6 +15,9 @@ spring:
       ddl-auto: update
       use-new-id-generator-mappings: true
     show-sql: true
+  mvc:
+    dispatch-options-request: true
+    
 
 
 okta:  
