@@ -18,7 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests().antMatchers("/**").permitAll();
+            http.authorizeRequests().anyRequest().authenticated();
             // .authorizeRequests()
             // .antMatchers("/findLessonsByDifficulty", "/getLesson/**", "getVocabularyByLessonId/**", "getDialogsByLessonId/**").permitAll()
             // .anyRequest().permitAll();
@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     {
         web.ignoring()
                 // All of Spring Security will ignore the requests
-                .antMatchers("/**");
+                .antMatchers("/findLessonsByDifficulty");
     }
         
 }
