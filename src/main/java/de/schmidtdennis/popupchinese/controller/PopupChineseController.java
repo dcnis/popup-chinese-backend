@@ -2,7 +2,6 @@ package de.schmidtdennis.popupchinese.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,7 +59,6 @@ public class PopupChineseController {
         return lessons;
     }
 
-    @PreAuthorize("permitAll()")
     @GetMapping("getLesson/{id}")
     public Lessons getLesson(@PathVariable Integer id) {
         Lessons lesson = lessonRepository.findById(id);
@@ -72,7 +70,6 @@ public class PopupChineseController {
         return dialogsRepository.getByLessonId(lessonId);
     }
 
-    @PreAuthorize("permitAll()")
     @PostMapping("findLessonsByDifficulty")
     public List<Lessons> findLessonsByDifficulty(
         @RequestBody DifficultyRequest request){
