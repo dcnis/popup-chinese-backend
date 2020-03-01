@@ -22,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/findLessonsByDifficulty").permitAll()
+                .antMatchers(HttpMethod.GET, "/getLesson/**").permitAll()
                 .antMatchers("/getVocabularyByLessonId/**").authenticated()
             // .anyRequest().authenticated()
             // .authorizeRequests()
