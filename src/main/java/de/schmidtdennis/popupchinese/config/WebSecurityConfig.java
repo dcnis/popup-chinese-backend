@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .oauth2ResourceServer().jwt();
 
-            // http.cors();
+            http.cors();
 
             // force a non-empty response body for 401's to make the response more browser friendly
             // Okta.configureResourceServer401ResponseBody(http);
