@@ -4,6 +4,7 @@ import com.okta.spring.boot.oauth.Okta;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -16,8 +17,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests()
-            .antMatchers("/getVocabularyByLessonId/**").authenticated()
+            http
+            .csrf().disable()
+            .authorizeRequests()
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .antMatchers("/getVocabularyByLessonId/**").authenticated()
             // .anyRequest().authenticated()
             // .authorizeRequests()
             // .antMatchers("/findLessonsByDifficulty", "/getLesson/**", "getVocabularyByLessonId/**", "getDialogsByLessonId/**").permitAll()
@@ -25,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .oauth2ResourceServer().jwt();
 
-            http.cors().and().csrf().disable();
+            http.cors();
 
             // force a non-empty response body for 401's to make the response more browser friendly
             // Okta.configureResourceServer401ResponseBody(http);
