@@ -18,7 +18,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
         protected void configure(HttpSecurity http) throws Exception {
             http
-            .csrf().disable()
             .authorizeRequests()
                 .anyRequest().authenticated()
                 // .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
@@ -32,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .oauth2ResourceServer().jwt();
 
-            http.cors();
+            http.cors().and().csrf().disable();
 
             // force a non-empty response body for 401's to make the response more browser friendly
             // Okta.configureResourceServer401ResponseBody(http);
@@ -43,9 +42,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         public void configure(WebSecurity web) throws Exception {
             web.ignoring()
             .antMatchers(HttpMethod.OPTIONS, "/**")
-            .antMatchers(HttpMethod.POST, "/**")
+            .antMatchers(HttpMethod.POST, "/findLessonsByDifficulty")
             .antMatchers(HttpMethod.GET, "/getLesson/**")
-            .antMatchers(HttpMethod.GET, "/getDialogsByLessonId/**");
+            .antMatchers(HttpMethod.GET, "/getDialogsByLessonId/**")
+            .antMatchers(HttpMethod.GET, "/getVocabularyByLessonId/**");
         }
         
 }
