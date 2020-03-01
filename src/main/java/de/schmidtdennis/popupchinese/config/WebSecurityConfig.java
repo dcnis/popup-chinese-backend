@@ -17,7 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-            .antMatchers("/lesson/**").authenticated()
+            .antMatchers("/getVocabularyByLessonId/**").authenticated()
             // .anyRequest().authenticated()
             // .authorizeRequests()
             // .antMatchers("/findLessonsByDifficulty", "/getLesson/**", "getVocabularyByLessonId/**", "getDialogsByLessonId/**").permitAll()
