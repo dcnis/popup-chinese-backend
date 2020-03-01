@@ -16,12 +16,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests().anyRequest().authenticated()
+            http.authorizeRequests().anyRequest().authenticated();
             // .authorizeRequests()
             // .antMatchers("/findLessonsByDifficulty", "/getLesson/**", "getVocabularyByLessonId/**", "getDialogsByLessonId/**").permitAll()
             // .anyRequest().permitAll();
-            .and()
-            .oauth2ResourceServer().jwt();
+            // .and()
+            // .oauth2ResourceServer().jwt();
 
             http.cors();
 
