@@ -20,10 +20,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             http
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/findLessonsByDifficulty").permitAll()
-                .antMatchers(HttpMethod.GET, "/getLesson/**").permitAll()
-                .antMatchers("/getVocabularyByLessonId/**").authenticated()
+                .anyRequest().authenticated()
+                // .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                // .antMatchers(HttpMethod.POST, "/findLessonsByDifficulty").permitAll()
+                // .antMatchers(HttpMethod.GET, "/getLesson/**").permitAll()
+                // .antMatchers("/getVocabularyByLessonId/**").authenticated()
             // .anyRequest().authenticated()
             // .authorizeRequests()
             // .antMatchers("/findLessonsByDifficulty", "/getLesson/**", "getVocabularyByLessonId/**", "getDialogsByLessonId/**").permitAll()
@@ -43,7 +44,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             web.ignoring()
             .antMatchers(HttpMethod.OPTIONS, "/**")
             .antMatchers(HttpMethod.POST, "**")
-            .antMatchers(HttpMethod.GET, "/getLesson/**");
+            .antMatchers(HttpMethod.GET, "/getLesson/**")
+            .antMatchers(HttpMethod.GET, "getDialogsByLessonId/**");
         }
         
 }
