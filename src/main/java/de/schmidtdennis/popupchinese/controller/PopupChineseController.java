@@ -60,6 +60,7 @@ public class PopupChineseController {
         return lessons;
     }
 
+    @PreAuthorize("permitAll()")
     @GetMapping("getLesson/{id}")
     public Lessons getLesson(@PathVariable Integer id) {
         Lessons lesson = lessonRepository.findById(id);
