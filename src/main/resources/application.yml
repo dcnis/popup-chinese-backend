@@ -23,6 +23,8 @@ okta:
     client-id: 0oa2ibx8wdHZ7tg2n4x6
     scope: openid profile email
 
+security.ignored: true
+
 
 logging.level.org.hibernate.SQL: DEBUG
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
