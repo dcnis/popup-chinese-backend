@@ -31,13 +31,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             // Okta.configureResourceServer401ResponseBody(http);
 
         }
-
-        @Override
-    public void configure(WebSecurity web) throws Exception
-    {
-        web.ignoring()
-                // All of Spring Security will ignore the requests
-                .antMatchers("/findLessonsByDifficulty");
-    }
         
 }
