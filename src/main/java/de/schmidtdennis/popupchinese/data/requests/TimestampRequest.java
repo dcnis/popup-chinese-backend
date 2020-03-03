@@ -12,6 +12,8 @@ public class TimestampRequest {
 
     public Integer lessonId;
 
+    public String email;
+
     public LocalDateTime lastSeen;
 
 }

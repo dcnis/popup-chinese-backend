@@ -1,7 +1,9 @@
 package de.schmidtdennis.popupchinese.data.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -18,5 +20,12 @@ public interface UserLessonsRepository extends CrudRepository<UserLessons, Long>
 
     @Query("SELECT u FROM UserLessons u INNER JOIN u.userAccountId ua WHERE ua.email LIKE %:email% ORDER BY u.lastSeen DESC")
     List<UserLessons> findByUserEmail(@Param ("email") String searchedEmail);
+
+    @Modifying
+    @Query("UPDATE UserLessons u SET u.lastSeen = :timestamp WHERE u.lessonId = :lessonId AND u.userAccountId.email = :email")
+    int updateLessonTimestamp(
+        @Param ("timestamp") LocalDateTime timestamp,
+        @Param ("lessonId") Integer lessonId,
+        @Param("email") String email);
 
 }
