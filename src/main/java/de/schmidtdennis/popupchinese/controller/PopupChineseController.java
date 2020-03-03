@@ -25,25 +25,19 @@ import de.schmidtdennis.popupchinese.data.requests.EmailRequest;
 import de.schmidtdennis.popupchinese.data.requests.TimestampRequest;
 
 @RestController
-@CrossOrigin(
-    origins = {"https://heroku-popup-chinese-frontend.herokuapp.com", 
-        "http://localhost:8080"})
+@CrossOrigin(origins = { "https://heroku-popup-chinese-frontend.herokuapp.com", "http://localhost:8080" })
 public class PopupChineseController {
 
     private final UserRepository userRepository;
     private final LessonRepository lessonRepository;
-    private final DialogsRepository dialogsRepository; 
+    private final DialogsRepository dialogsRepository;
     private final VocabularyRepository vocabularyRepository;
     private final UserLessonsRepository userLessonsRepository;
 
     @Autowired
-    public PopupChineseController(
-        UserRepository userRepository, 
-        LessonRepository lessonRepository,
-        DialogsRepository dialogsRepository,
-        VocabularyRepository vocabularyRepository,
-        UserLessonsRepository userLessonsRepository
-    ) {
+    public PopupChineseController(UserRepository userRepository, LessonRepository lessonRepository,
+            DialogsRepository dialogsRepository, VocabularyRepository vocabularyRepository,
+            UserLessonsRepository userLessonsRepository) {
         this.userRepository = userRepository;
         this.lessonRepository = lessonRepository;
         this.dialogsRepository = dialogsRepository;
@@ -52,12 +46,12 @@ public class PopupChineseController {
     }
 
     @GetMapping("/getUsers")
-    public Iterable<UserAccount> getUsers(){
+    public Iterable<UserAccount> getUsers() {
         return userRepository.findAll();
     }
 
     @GetMapping("getLessons")
-    public Iterable<Lessons> getLessons(){
+    public Iterable<Lessons> getLessons() {
         Iterable<Lessons> lessons = lessonRepository.findAll();
         return lessons;
     }
@@ -74,38 +68,45 @@ public class PopupChineseController {
     }
 
     @PostMapping("findLessonsByDifficulty")
-    public List<Lessons> findLessonsByDifficulty(
-        @RequestBody DifficultyRequest request){
+    public List<Lessons> findLessonsByDifficulty(@RequestBody DifficultyRequest request) {
 
         return lessonRepository.findBySearchedDifficulty(request.difficulty);
     }
 
     @GetMapping("getVocabularyByLessonId/{id}")
-    public List<Vocabulary> getVocabularyByLessonId(@PathVariable Integer id){
+    public List<Vocabulary> getVocabularyByLessonId(@PathVariable Integer id) {
         return vocabularyRepository.findByLessonIdOrderByVocabularyIdAsc(id);
     }
 
     @GetMapping("getUserLessonsByUserId/{userId}")
-    public List<UserLessons> getUserLessonsByUserId(@PathVariable Integer userId){
+    public List<UserLessons> getUserLessonsByUserId(@PathVariable Integer userId) {
         return userLessonsRepository.findByUserAccountId(userId);
     }
 
     @PostMapping("getUserLessonsByUserEmail")
-    public List<UserLessons> getUserLessonsByUserEmail(@RequestBody EmailRequest request){
+    public List<UserLessons> getUserLessonsByUserEmail(@RequestBody EmailRequest request) {
         return userLessonsRepository.findByUserEmail(request.email);
     }
 
     @PostMapping("updateLessonTimestamp")
-    public ResponseEntity<String> updateLessonTimestamp(@RequestBody TimestampRequest request){
+    public ResponseEntity<String> updateLessonTimestamp(@RequestBody TimestampRequest request) {
 
-        System.out.println("++++++++++++++++++++++++++++++++ The request has lessonId " 
-        + request.lessonId + " and time: " + request.lastSeen + " email " + request.email);
+        System.out.println("++++++++++++++++++++++++++++++++ The request has lessonId " + request.lessonId
+                + " and time: " + request.lastSeen + " email " + request.email);
 
-        int affectedRows = userLessonsRepository.updateLessonTimestamp(
-            request.lastSeen, request.lessonId, request.email);
+        int affectedRows = userLessonsRepository.updateLessonTimestamp(request.lastSeen, request.lessonId,
+                request.email);
 
         System.out.println("################ affectedRows: " + affectedRows);
 
         return new ResponseEntity<>("hallo", HttpStatus.OK);
+    }
+
+    @PostMapping("updateLessonTimestampSimple")
+    public ResponseEntity<Integer> updateLessonTimestampSimple(@RequestBody TimestampRequest request) {
+
+        int response = userLessonsRepository.updateLessonTimestampSimple();
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
