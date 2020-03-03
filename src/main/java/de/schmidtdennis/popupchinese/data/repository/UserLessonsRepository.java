@@ -8,24 +8,24 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import de.schmidtdennis.popupchinese.data.dto.Lessons;
 import de.schmidtdennis.popupchinese.data.dto.UserLessons;
 
 /**
  * UserLessonsRepository
  */
 @Repository
-public interface UserLessonsRepository extends CrudRepository<UserLessons, Long>{
+public interface UserLessonsRepository extends CrudRepository<UserLessons, Long> {
 
     List<UserLessons> findByUserAccountId(@Param("userId") Integer userId);
 
     @Query("SELECT u FROM UserLessons u INNER JOIN u.userAccountId ua WHERE ua.email LIKE %:email% ORDER BY u.lastSeen DESC")
-    List<UserLessons> findByUserEmail(@Param ("email") String searchedEmail);
+    List<UserLessons> findByUserEmail(@Param("email") String searchedEmail);
 
     @Modifying
-    @Query("UPDATE UserLessons u SET u.lastSeen = :timestamp WHERE u.lessonId = :lessonId AND u.userAccountId.email = :email")
-    int updateLessonTimestamp(
-        @Param ("timestamp") LocalDateTime timestamp,
-        @Param ("lessonId") Integer lessonId,
-        @Param("email") String email);
+    @Query("UPDATE UserLessons u SET u.lastSeen = :timestamp WHERE u.id IN (SELECT u1.id FROM UserLessons u1 INNER JOIN u1.userAccountId u1a INNER JOIN u1.lessonId u1l WHERE u1a.email LIKE %:email% AND u1l.id = :lessonId)")
+    int updateLessonTimestamp(@Param("timestamp") LocalDateTime timestamp, @Param("lessonId") Integer lessonId,
+            @Param("email") String email);
 
 }
