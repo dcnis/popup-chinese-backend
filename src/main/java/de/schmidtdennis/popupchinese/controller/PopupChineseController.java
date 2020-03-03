@@ -89,24 +89,12 @@ public class PopupChineseController {
     }
 
     @PostMapping("updateLessonTimestamp")
-    public ResponseEntity<String> updateLessonTimestamp(@RequestBody TimestampRequest request) {
-
-        System.out.println("++++++++++++++++++++++++++++++++ The request has lessonId " + request.lessonId
-                + " and time: " + request.lastSeen + " email " + request.email);
+    public ResponseEntity<Integer> updateLessonTimestamp(@RequestBody TimestampRequest request) {
 
         int affectedRows = userLessonsRepository.updateLessonTimestamp(request.lastSeen, request.lessonId,
                 request.email);
 
-        System.out.println("################ affectedRows: " + affectedRows);
-
-        return new ResponseEntity<>("hallo", HttpStatus.OK);
+        return new ResponseEntity<>(affectedRows, HttpStatus.OK);
     }
 
-    @PostMapping("updateLessonTimestampSimple")
-    public ResponseEntity<Integer> updateLessonTimestampSimple(@RequestBody TimestampRequest request) {
-
-        int response = userLessonsRepository.updateLessonTimestampSimple();
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
 }
