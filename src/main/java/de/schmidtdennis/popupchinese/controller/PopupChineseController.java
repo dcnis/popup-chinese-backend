@@ -2,6 +2,8 @@ package de.schmidtdennis.popupchinese.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,7 @@ import de.schmidtdennis.popupchinese.data.repository.UserRepository;
 import de.schmidtdennis.popupchinese.data.repository.VocabularyRepository;
 import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
 import de.schmidtdennis.popupchinese.data.requests.EmailRequest;
+import de.schmidtdennis.popupchinese.data.requests.TimestampRequest;
 
 @RestController
 @CrossOrigin(
@@ -90,5 +93,13 @@ public class PopupChineseController {
     @PostMapping("getUserLessonsByUserEmail")
     public List<UserLessons> getUserLessonsByUserEmail(@RequestBody EmailRequest request){
         return userLessonsRepository.findByUserEmail(request.email);
+    }
+
+    @PostMapping("updateLessonTimestamp")
+    public ResponseEntity<String> updateLessonTimestamp(@RequestBody TimestampRequest request){
+
+        System.out.println("++++++++++++++++++++++++++++++++ The request has lessonId " + request.lessonId + " and time: " + request.lastSeen);
+
+        return new ResponseEntity<>("hallo", HttpStatus.OK);
     }
 }
