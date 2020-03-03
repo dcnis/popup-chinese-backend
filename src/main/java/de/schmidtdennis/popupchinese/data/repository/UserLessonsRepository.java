@@ -24,6 +24,7 @@ public interface UserLessonsRepository extends CrudRepository<UserLessons, Long>
     @Query("SELECT u FROM UserLessons u INNER JOIN u.userAccountId ua WHERE ua.email LIKE %:email% ORDER BY u.lastSeen DESC")
     List<UserLessons> findByUserEmail(@Param("email") String searchedEmail);
 
+    @Transactional
     @Modifying
     @Query("UPDATE UserLessons u SET u.lastSeen = :timestamp WHERE u.id IN (SELECT u1.id FROM UserLessons u1 INNER JOIN u1.userAccountId u1a INNER JOIN u1.lessonId u1l WHERE u1a.email LIKE %:email% AND u1l.id = :lessonId)")
     int updateLessonTimestamp(@Param("timestamp") LocalDateTime timestamp, @Param("lessonId") Integer lessonId,
