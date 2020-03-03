@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import de.schmidtdennis.popupchinese.data.dto.Lessons;
 import de.schmidtdennis.popupchinese.data.dto.UserLessons;
@@ -28,6 +29,7 @@ public interface UserLessonsRepository extends CrudRepository<UserLessons, Long>
     int updateLessonTimestamp(@Param("timestamp") LocalDateTime timestamp, @Param("lessonId") Integer lessonId,
             @Param("email") String email);
 
+    @Transactional
     @Modifying
     @Query("UPDATE UserLessons u SET u.lastSeen = '1999-01-01T00:00:00.515Z' WHERE u.id = 2")
     int updateLessonTimestampSimple();
