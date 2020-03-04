@@ -106,14 +106,26 @@ public class PopupChineseController {
         @RequestParam Integer userAccountId,
         @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime lastSeen,
         @RequestParam Integer lessonId) {
+
+        // Find user
         UserAccount user = userRepository.findById(userAccountId);
-        System.out.println("###############################" + user);
+
+        // Find lesson
         Lessons lesson = lessonRepository.findById(lessonId);
-        System.out.println("+++++++++++++++++++++++++++++++++++" + lesson);
 
-        UserLessons userLesson = new UserLessons(user, lesson, lastSeen);
+        // Create new UserLesson
+        UserLessons newUserLesson = new UserLessons(user, lesson, lastSeen);
 
-        userLessonsRepository.save(userLesson);
+        // Add new UserLesson to user-parent
+        List<UserLessons> currentUserLessons = user.getUserLessons();
+        currentUserLessons.add(newUserLesson);
+        user.setUserLessons(currentUserLessons);
+
+        // Add new UserLesson to lesson-parent
+
+        // update user-parent and lesson-parent, therefore create userlesson CASCADE.ALL
+
+        userRepository.save(user);
     }
 
 }
