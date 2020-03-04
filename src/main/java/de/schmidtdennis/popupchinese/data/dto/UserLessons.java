@@ -9,13 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  * UserLessons
  */
 @Getter
+@Setter
 @Entity(name = "UserLessons")
 @Table(name = "watched_user_account_lessons")
 public class UserLessons {
