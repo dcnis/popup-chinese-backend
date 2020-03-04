@@ -103,12 +103,12 @@ public class PopupChineseController {
 
     @PostMapping("addLatestLessonsOfUser")
     public void addLatestLessonsOfUser(
-        @RequestParam Integer userAccountId,
+        @RequestParam String email,
         @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime lastSeen,
         @RequestParam Integer lessonId) {
 
         // Find user
-        UserAccount user = userRepository.findById(userAccountId);
+        UserAccount user = userRepository.findByEmail(email);
 
         // Find lesson
         Lessons lesson = lessonRepository.findById(lessonId);
