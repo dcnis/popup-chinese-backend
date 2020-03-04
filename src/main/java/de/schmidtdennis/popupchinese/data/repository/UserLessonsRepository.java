@@ -17,7 +17,7 @@ import de.schmidtdennis.popupchinese.data.dto.UserLessons;
  * UserLessonsRepository
  */
 @Repository
-public interface UserLessonsRepository extends CrudRepository<UserLessons, Long> {
+public interface UserLessonsRepository extends CrudRepository<UserLessons, Integer> {
 
     List<UserLessons> findByUserAccountId(@Param("userId") Integer userId);
 
