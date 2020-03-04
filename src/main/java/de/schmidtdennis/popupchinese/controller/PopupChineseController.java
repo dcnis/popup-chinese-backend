@@ -100,14 +100,16 @@ public class PopupChineseController {
         return new ResponseEntity<>(affectedRows, HttpStatus.OK);
     }
 
-    
+
     @PostMapping("addLatestLessonsOfUser")
     public void addLatestLessonsOfUser(
         @RequestParam Integer userAccountId,
         @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime lastSeen,
         @RequestParam Integer lessonId) {
         UserAccount user = userRepository.findById(userAccountId);
+        System.out.println("###############################" + user);
         Lessons lesson = lessonRepository.findById(lessonId);
+        System.out.println("+++++++++++++++++++++++++++++++++++" + lesson);
 
         UserLessons userLesson = new UserLessons(user, lesson, lastSeen);
 
