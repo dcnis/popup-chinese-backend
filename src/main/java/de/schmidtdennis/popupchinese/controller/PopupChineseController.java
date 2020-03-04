@@ -97,4 +97,10 @@ public class PopupChineseController {
         return new ResponseEntity<>(affectedRows, HttpStatus.OK);
     }
 
+
+    @PostMapping("addLatestLessonsOfUser")
+    public void addLatestLessonsOfUser(@RequestBody UserLessons userLesson) {
+        userLessonsRepository.save(userLesson);
+    }
+
 }
