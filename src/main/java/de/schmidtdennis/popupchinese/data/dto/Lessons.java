@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Entity(name = "Lessons")
-@Data
 @Table(name = "lessons")
 public class Lessons {
 

@@ -19,7 +19,6 @@ import lombok.Data;
  * Difficulties
  */
 @Entity(name = "Difficulties")
-@Data
 @Table(name = "difficulties")
 public class Difficulties {
 

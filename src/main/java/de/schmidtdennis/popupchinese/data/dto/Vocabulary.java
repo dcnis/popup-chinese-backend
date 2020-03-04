@@ -7,10 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Data;
 
 @Entity(name = "Vocabulary")
-@Data
 @Table(name = "vocabulary")
 public class Vocabulary {
 

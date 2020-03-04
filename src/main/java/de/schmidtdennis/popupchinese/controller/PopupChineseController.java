@@ -1,5 +1,6 @@
 package de.schmidtdennis.popupchinese.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import de.schmidtdennis.popupchinese.data.dto.Dialogs;
 import de.schmidtdennis.popupchinese.data.dto.Lessons;
@@ -99,7 +101,15 @@ public class PopupChineseController {
 
 
     @PostMapping("addLatestLessonsOfUser")
-    public void addLatestLessonsOfUser(@RequestBody UserLessons userLesson) {
+    public void addLatestLessonsOfUser(
+        @RequestParam Integer userAccountId,
+        @RequestParam LocalDateTime lastSeen,
+        @RequestParam Integer lessonId) {
+        UserAccount user = userRepository.findById(userAccountId);
+        Lessons lesson = lessonRepository.findById(lessonId);
+
+        UserLessons userLesson = new UserLessons(user, lesson, lastSeen);
+
         userLessonsRepository.save(userLesson);
     }
 

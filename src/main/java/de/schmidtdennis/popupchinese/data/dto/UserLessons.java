@@ -9,12 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import lombok.Data;
+
+import lombok.Getter;
 
 /**
  * UserLessons
  */
-@Data
+@Getter
 @Entity(name = "UserLessons")
 @Table(name = "watched_user_account_lessons")
 public class UserLessons {
@@ -33,5 +34,11 @@ public class UserLessons {
 
     @Column(name = "last_seen")
     private LocalDateTime lastSeen;
+
+    public UserLessons(UserAccount user, Lessons lesson, LocalDateTime lastSeen) {
+        this.userAccountId = user;
+        this.lessonId = lesson;
+        this.lastSeen = lastSeen;
+    }
 
 }

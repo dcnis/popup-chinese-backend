@@ -14,7 +14,6 @@ import lombok.Data;
  */
 
 @Entity
-@Data
 public class Dialogs {
 
     @Id
