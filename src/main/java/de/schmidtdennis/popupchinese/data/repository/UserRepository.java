@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import de.schmidtdennis.popupchinese.data.dto.UserAccount;
 
 @Repository
-public interface UserRepository extends CrudRepository<UserAccount, Long> {
+public interface UserRepository extends CrudRepository<UserAccount, Integer> {
     
     List<UserAccount> findByName(String name);
 
