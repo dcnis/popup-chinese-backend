@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -108,10 +109,15 @@ public class PopupChineseController {
         @RequestParam Integer lessonId) {
 
         // Find user
-        UserAccount user = userRepository.findByEmail(email);
+        List<UserAccount> userList = userRepository.findByEmail(email);
+        if (userList == null || userList.size() != 1) {
+            throw new IllegalArgumentException("no user exists with email: " + email);
+        }
+        UserAccount user = userList.get(0);
 
         // Find lesson
         Lessons lesson = lessonRepository.findById(lessonId);
+        Assert.notNull(lesson, "lesson must not be null");
 
         // Create new UserLesson
         UserLessons newUserLesson = new UserLessons(user, lesson, lastSeen);
