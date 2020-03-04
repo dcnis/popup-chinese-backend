@@ -3,6 +3,7 @@ package de.schmidtdennis.popupchinese.controller;
 import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -103,7 +104,7 @@ public class PopupChineseController {
     @PostMapping("addLatestLessonsOfUser")
     public void addLatestLessonsOfUser(
         @RequestParam Integer userAccountId,
-        @RequestParam LocalDateTime lastSeen,
+        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime lastSeen,
         @RequestParam Integer lessonId) {
         UserAccount user = userRepository.findById(userAccountId);
         Lessons lesson = lessonRepository.findById(lessonId);
