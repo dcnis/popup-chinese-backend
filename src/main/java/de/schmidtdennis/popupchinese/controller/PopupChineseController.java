@@ -96,7 +96,7 @@ public class PopupChineseController {
     public Page<UserLessons> getUserLessonsByUserEmail(@RequestBody EmailRequest request) {
         return userLessonsRepository.findByUserEmail(
             request.email,
-            PageRequest.of(0,5));
+            PageRequest.of(0, request.limit));
     }
 
     @PostMapping("updateLessonTimestamp")
