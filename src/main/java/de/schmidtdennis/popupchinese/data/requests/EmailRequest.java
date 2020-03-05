@@ -10,4 +10,6 @@ public class EmailRequest {
 
     public String email;
 
+    public Integer limit;
+
 }
