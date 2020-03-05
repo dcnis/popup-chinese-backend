@@ -3,9 +3,11 @@ package de.schmidtdennis.popupchinese.data.repository;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,12 +17,12 @@ import de.schmidtdennis.popupchinese.data.dto.UserLessons;
  * UserLessonsRepository
  */
 @Repository
-public interface UserLessonsRepository extends CrudRepository<UserLessons, Integer> {
+public interface UserLessonsRepository extends JpaRepository<UserLessons, Integer> {
 
     List<UserLessons> findByUserAccountId(@Param("userId") Integer userId);
 
-    @Query("SELECT u FROM UserLessons u INNER JOIN u.userAccountId ua WHERE ua.email LIKE %:email% ORDER BY u.lastSeen DESC LIMIT :limit")
-    List<UserLessons> findByUserEmail(@Param("email") String searchedEmail, @Param("limit") Integer limit);
+    @Query("SELECT u FROM UserLessons u INNER JOIN u.userAccountId ua WHERE ua.email LIKE %:email% ORDER BY u.lastSeen DESC")
+    Page<UserLessons> findByUserEmail(@Param("email") String searchedEmail, Pageable pageable);
 
     @Transactional
     @Modifying

@@ -3,9 +3,14 @@ package de.schmidtdennis.popupchinese.controller;
 import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -88,8 +93,10 @@ public class PopupChineseController {
     }
 
     @PostMapping("getUserLessonsByUserEmail")
-    public List<UserLessons> getUserLessonsByUserEmail(@RequestBody EmailRequest request) {
-        return userLessonsRepository.findByUserEmail(request.email, request.limit);
+    public Page<UserLessons> getUserLessonsByUserEmail(@RequestBody EmailRequest request) {
+        return userLessonsRepository.findByUserEmail(
+            request.email,
+            PageRequest.of(0,5));
     }
 
     @PostMapping("updateLessonTimestamp")
