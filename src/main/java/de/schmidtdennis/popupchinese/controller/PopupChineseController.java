@@ -89,7 +89,7 @@ public class PopupChineseController {
 
     @PostMapping("getUserLessonsByUserEmail")
     public List<UserLessons> getUserLessonsByUserEmail(@RequestBody EmailRequest request) {
-        return userLessonsRepository.findByUserEmail(request.email);
+        return userLessonsRepository.findByUserEmail(request.email, request.limit);
     }
 
     @PostMapping("updateLessonTimestamp")
