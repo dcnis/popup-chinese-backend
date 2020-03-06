@@ -27,10 +27,17 @@ public interface UserLessonsRepository extends JpaRepository<UserLessons, Intege
     @Transactional
     @Modifying
     @Query("UPDATE UserLessons u SET u.lastSeen = :timestamp WHERE u.id IN (SELECT u1.id FROM UserLessons u1 INNER JOIN u1.userAccountId u1a INNER JOIN u1.lessonId u1l WHERE u1a.email LIKE %:email% AND u1l.id = :lessonId)")
-    int updateLessonTimestamp(@Param("timestamp") LocalDateTime timestamp, @Param("lessonId") Integer lessonId,
-            @Param("email") String email);
+    int updateLessonTimestamp(
+            @Param("email") String email,
+            @Param("lessonId") Integer lessonId,
+            @Param("timestamp") LocalDateTime timestamp);
 
     @Query("SELECT u from UserLessons u INNER JOIN u.lessonId ul INNER JOIN u.userAccountId ua WHERE ua.email LIKE %:email% AND ul.id = :lessonId")
     List<UserLessons> findByEmailAndLessonId(@Param("email") String email, @Param("lessonId") Integer lessonId);
+
+	int updateLiked(
+        @Param("email") String email,
+        @Param("lessonId") Integer lessonId,
+        @Param("liked") Boolean liked);
 
 }

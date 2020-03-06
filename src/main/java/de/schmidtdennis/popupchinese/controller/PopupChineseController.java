@@ -28,7 +28,6 @@ import de.schmidtdennis.popupchinese.data.repository.UserLessonsRepository;
 import de.schmidtdennis.popupchinese.data.repository.UserRepository;
 import de.schmidtdennis.popupchinese.data.repository.VocabularyRepository;
 import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
-import de.schmidtdennis.popupchinese.data.requests.TimestampRequest;
 import de.schmidtdennis.popupchinese.data.requests.UserLessonRequest;
 
 @RestController
@@ -92,27 +91,27 @@ public class PopupChineseController {
 
     @PostMapping("getUserLessons")
     public Page<UserLessons> getUserLessons(@RequestBody UserLessonRequest request) {
-        Assert.notNull(request.email, "User email must not be null");
+        Assert.notNull(request.getEmail(), "User email must not be null");
         
-        Integer limit = request.limit;
+        Integer limit = request.getLimit();
 
         if (limit == null){
             limit = Integer.MAX_VALUE;
         }
 
         return userLessonsRepository.findByUserEmail(
-            request.email,
+            request.getEmail(),
             PageRequest.of(0, limit));
     }
 
     @PostMapping("getSingleUserLesson")
     public ResponseEntity<UserLessons> getSingleUserLesson(@RequestBody UserLessonRequest request){
-        Assert.notNull(request.email, "user email must not be null!");
-        Assert.notNull(request.lessonId, "lessonId must not be null!");
+        Assert.notNull(request.getEmail(), "user email must not be null!");
+        Assert.notNull(request.getLessonId(), "lessonId must not be null!");
 
         List<UserLessons> userLessons = new ArrayList<>();
 
-        userLessons = userLessonsRepository.findByEmailAndLessonId(request.email, request.lessonId);
+        userLessons = userLessonsRepository.findByEmailAndLessonId(request.getEmail(), request.getLessonId());
 
         if (userLessons.size() != 1){
              throw new IllegalArgumentException("No lesson found with given email and lessonId");
@@ -123,11 +122,24 @@ public class PopupChineseController {
     }
     
 
-    @PostMapping("updateLessonTimestamp")
-    public ResponseEntity<Integer> updateLessonTimestamp(@RequestBody TimestampRequest request) {
+    @PostMapping("updateUserLesson")
+    public ResponseEntity<Integer> updateUserLesson(@RequestBody UserLessonRequest request) {        
+        int affectedRows = 0;
 
-        int affectedRows = userLessonsRepository.updateLessonTimestamp(request.lastSeen, request.lessonId,
-                request.email);
+        if(request.getLastSeen() != null) {
+            affectedRows = userLessonsRepository.updateLessonTimestamp(
+                request.getEmail(), 
+                request.getLessonId(),
+                request.getLastSeen());
+        }
+
+        if(request.getLiked() != null){
+            affectedRows = userLessonsRepository.updateLiked(
+                request.getEmail(), 
+                request.getLessonId(),
+                request.getLiked()
+            );
+        }
 
         return new ResponseEntity<>(affectedRows, HttpStatus.OK);
     }

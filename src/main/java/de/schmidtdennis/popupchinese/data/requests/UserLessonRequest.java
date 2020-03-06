@@ -1,5 +1,9 @@
 package de.schmidtdennis.popupchinese.data.requests;
 
+import java.time.LocalDateTime;
+
+import javax.validation.constraints.NotNull;
+
 import lombok.Data;
 
 /**
@@ -8,10 +12,16 @@ import lombok.Data;
 @Data
 public class UserLessonRequest {
 
-    public String email;
+    @NotNull(message = "email must not be null")
+    private String email;
 
-    public Integer limit;
+    @NotNull(message = "lessonId must not be null")
+    private Integer lessonId;
 
-    public Integer lessonId;
+    private Integer limit;
+
+    private LocalDateTime lastSeen;
+
+    private Boolean liked;
 
 }
