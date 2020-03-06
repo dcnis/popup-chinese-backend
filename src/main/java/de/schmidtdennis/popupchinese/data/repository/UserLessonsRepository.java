@@ -35,6 +35,8 @@ public interface UserLessonsRepository extends JpaRepository<UserLessons, Intege
     @Query("SELECT u from UserLessons u INNER JOIN u.lessonId ul INNER JOIN u.userAccountId ua WHERE ua.email LIKE %:email% AND ul.id = :lessonId")
     List<UserLessons> findByEmailAndLessonId(@Param("email") String email, @Param("lessonId") Integer lessonId);
 
+    @Transactional
+    @Modifying
     @Query("UPDATE UserLessons u SET u.liked = :liked WHERE u.id IN (SELECT u1.id FROM UserLessons u1 INNER JOIN u1.userAccountId user INNER JOIN u1.lessonId lesson WHERE user.email LIKE %:email% AND lesson.id = :lessonId)")
 	int updateLiked(
         @Param("email") String email,
