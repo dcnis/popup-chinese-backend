@@ -6,10 +6,12 @@ import lombok.Data;
  * EmailRequest
  */
 @Data
-public class EmailRequest {
+public class UserLessonRequest {
 
     public String email;
 
     public Integer limit;
+
+    public Integer lessonId;
 
 }

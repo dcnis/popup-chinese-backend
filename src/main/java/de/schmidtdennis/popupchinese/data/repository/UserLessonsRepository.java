@@ -30,4 +30,7 @@ public interface UserLessonsRepository extends JpaRepository<UserLessons, Intege
     int updateLessonTimestamp(@Param("timestamp") LocalDateTime timestamp, @Param("lessonId") Integer lessonId,
             @Param("email") String email);
 
+    @Query("SELECT u from UserLessons u INNER JOIN u.lessonId ul INNER JOIN u.userAccountId ua WHERE ua.email LIKE %:email% AND ul.id = :lessonId")
+    List<UserLessons> findByEmailAndLessonId(@Param("email") String email, @Param("lessonId") Integer lessonId);
+
 }

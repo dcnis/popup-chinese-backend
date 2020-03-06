@@ -23,6 +23,12 @@ import lombok.Setter;
 @Table(name = "watched_user_account_lessons")
 public class UserLessons {
 
+    public UserLessons(UserAccount user, Lessons lesson, LocalDateTime lastSeen) {
+        this.userAccountId = user;
+        this.lessonId = lesson;
+        this.lastSeen = lastSeen;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
@@ -38,10 +44,6 @@ public class UserLessons {
     @Column(name = "last_seen")
     private LocalDateTime lastSeen;
 
-    public UserLessons(UserAccount user, Lessons lesson, LocalDateTime lastSeen) {
-        this.userAccountId = user;
-        this.lessonId = lesson;
-        this.lastSeen = lastSeen;
-    }
+    private Boolean liked;
 
 }

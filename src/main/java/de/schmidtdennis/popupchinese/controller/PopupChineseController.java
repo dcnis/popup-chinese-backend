@@ -1,16 +1,14 @@
 package de.schmidtdennis.popupchinese.controller;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +28,8 @@ import de.schmidtdennis.popupchinese.data.repository.UserLessonsRepository;
 import de.schmidtdennis.popupchinese.data.repository.UserRepository;
 import de.schmidtdennis.popupchinese.data.repository.VocabularyRepository;
 import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
-import de.schmidtdennis.popupchinese.data.requests.EmailRequest;
 import de.schmidtdennis.popupchinese.data.requests.TimestampRequest;
+import de.schmidtdennis.popupchinese.data.requests.UserLessonRequest;
 
 @RestController
 @CrossOrigin(origins = { "https://heroku-popup-chinese-frontend.herokuapp.com", "http://localhost:8080" })
@@ -92,12 +90,38 @@ public class PopupChineseController {
         return userLessonsRepository.findByUserAccountId(userId);
     }
 
-    @PostMapping("getUserLessonsByUserEmail")
-    public Page<UserLessons> getUserLessonsByUserEmail(@RequestBody EmailRequest request) {
+    @PostMapping("getUserLessons")
+    public Page<UserLessons> getUserLessons(@RequestBody UserLessonRequest request) {
+        Assert.notNull(request.email, "User email must not be null");
+        
+        Integer limit = request.limit;
+
+        if (limit == null){
+            limit = Integer.MAX_VALUE;
+        }
+
         return userLessonsRepository.findByUserEmail(
             request.email,
-            PageRequest.of(0, request.limit));
+            PageRequest.of(0, limit));
     }
+
+    @PostMapping("getSingleUserLesson")
+    public ResponseEntity<UserLessons> getSingleUserLesson(@RequestBody UserLessonRequest request){
+        Assert.notNull(request.email, "user email must not be null!");
+        Assert.notNull(request.lessonId, "lessonId must not be null!");
+
+        List<UserLessons> userLessons = new ArrayList<>();
+
+        userLessons = userLessonsRepository.findByEmailAndLessonId(request.email, request.lessonId);
+
+        if (userLessons.size() != 1){
+             throw new IllegalArgumentException("No lesson found with given email and lessonId");
+        }
+
+        return new ResponseEntity<>(userLessons.get(0), HttpStatus.OK);
+
+    }
+    
 
     @PostMapping("updateLessonTimestamp")
     public ResponseEntity<Integer> updateLessonTimestamp(@RequestBody TimestampRequest request) {
