@@ -99,9 +99,22 @@ public class PopupChineseController {
             limit = Integer.MAX_VALUE;
         }
 
-        return userLessonsRepository.findByUserEmail(
-            request.getEmail(),
-            PageRequest.of(0, limit));
+        Page<UserLessons> response = null;
+
+        if(request.getLiked() == null){
+            response = userLessonsRepository.findByUserEmail(
+                request.getEmail(),
+                PageRequest.of(0, limit));
+        } else {
+            response = userLessonsRepository.findLikedUserLessons(
+                request.getEmail(),
+                request.getLiked(),
+                PageRequest.of(0, limit));
+        }
+
+        Assert.notNull(response, "No UserLessons found for given request");
+
+        return response;
     }
 
     @PostMapping("getSingleUserLesson")
