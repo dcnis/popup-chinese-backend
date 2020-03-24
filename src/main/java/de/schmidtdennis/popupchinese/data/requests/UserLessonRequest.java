@@ -4,7 +4,9 @@ import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotNull;
 
+
 import lombok.Data;
+import lombok.Getter;
 
 /**
  * EmailRequest

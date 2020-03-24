@@ -58,14 +58,12 @@ public class PopupChineseController {
 
     @GetMapping("getLessons")
     public Iterable<Lessons> getLessons() {
-        Iterable<Lessons> lessons = lessonRepository.findAll();
-        return lessons;
+        return lessonRepository.findAll();
     }
 
     @GetMapping("getLesson/{id}")
     public Lessons getLesson(@PathVariable Integer id) {
-        Lessons lesson = lessonRepository.findById(id);
-        return lesson;
+       return lessonRepository.findById(id);
     }
 
     @GetMapping("getDialogsByLessonId/{lessonId}")
@@ -99,7 +97,7 @@ public class PopupChineseController {
             limit = Integer.MAX_VALUE;
         }
 
-        Page<UserLessons> response = null;
+        Page<UserLessons> response;
 
         if(request.getLiked() == null){
             response = userLessonsRepository.findByUserEmail(
