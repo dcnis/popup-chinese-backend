@@ -12,7 +12,7 @@ public final class JsonConverter {
         ObjectMapper mapper = new ObjectMapper();
 
         return mapper.readValue(new File(path), objectClass);
-
+        
     }
 
 }
