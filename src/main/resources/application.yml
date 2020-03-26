@@ -2,10 +2,6 @@
 name: dev-yaml
 
 spring:
-  datasource:
-    url: jdbc:postgresql://ec2-54-152-175-141.compute-1.amazonaws.com:5432/d5gj3ht8rar69a
-    username: cksklnxxgmumpd
-    password: 64f022fc4c60e36478fa5db8c6d3a194795e708c0ff2cc3a9f4462e7f3978487
   jpa:
     properties:
       hibernate:

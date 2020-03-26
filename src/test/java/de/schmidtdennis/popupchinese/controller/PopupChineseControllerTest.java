@@ -1,38 +1,28 @@
 package de.schmidtdennis.popupchinese.controller;
 
-import static org.assertj.core.api.Assertions.*;
-
+import de.schmidtdennis.popupchinese.data.dto.Lessons;
 import de.schmidtdennis.popupchinese.data.dto.UserLessons;
+import de.schmidtdennis.popupchinese.data.repository.LessonRepository;
 import de.schmidtdennis.popupchinese.data.repository.UserLessonsRepository;
 import de.schmidtdennis.popupchinese.data.requests.UserLessonRequest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import static org.mockito.Mockito.*;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import org.mockito.junit.MockitoJUnitRunner;
-
-import de.schmidtdennis.popupchinese.data.dto.Lessons;
-import de.schmidtdennis.popupchinese.data.repository.LessonRepository;
-import de.schmidtdennis.popupchinese.data.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import util.JsonConverter;
 
+import java.io.IOException;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
+
 @RunWith(MockitoJUnitRunner.class)
 public class PopupChineseControllerTest {
 
-    private static final String RESOURCES = "src/test/java/resources/";
+    private static final String RESOURCES = "src/test/resources/";
 
     @Mock
     LessonRepository lessonRepository;
