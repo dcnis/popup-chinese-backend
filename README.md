@@ -31,3 +31,9 @@ To run the backend successfully on heroku:
     ```bash
     heroku config:set DATABASE_URL=postgres://{username}:{password}@{databaseServer}:{port}/{database}
     ```
+    
+4. To push your commits to heroku use following command
+    
+    ```bash
+    git push heroku master
+    ```
