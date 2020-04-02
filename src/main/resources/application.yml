@@ -17,8 +17,8 @@ spring:
 
 okta:  
   oauth2:  
-    issuer: https://dev-137527.okta.com/oauth2/default
-    client-id: ${CLIENT_ID}
+    issuer: ${OKTA_ISSUER}
+    client-id: ${OKTA_CLIENT_ID}
     scope: openid profile email
 
 
