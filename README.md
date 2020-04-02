@@ -30,5 +30,4 @@ To run the backend successfully on heroku:
     
     ```bash
     heroku config:set DATABASE_URL=postgres://{username}:{password}@{databaseServer}:{port}/{database}
-rar69a
     ```
