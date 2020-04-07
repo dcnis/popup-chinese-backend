@@ -44,7 +44,7 @@ public interface UserLessonsRepository extends JpaRepository<UserLessons, Intege
         @Param("liked") Boolean liked);
 
 
-    @Query("SELECT u from UserLessons u INNER JOIN u.userAccountId ua WHERE ua.email LIKE %:email% AND u.liked = :liked")
+    @Query("SELECT u from UserLessons u INNER JOIN u.userAccountId ua WHERE ua.email LIKE %:email% AND u.liked = :liked ORDER BY u.lastSeen DESC")
     Page<UserLessons> findLikedUserLessons(
         @Param ("email") String searchedEmail,
         @Param ("liked") Boolean liked,
