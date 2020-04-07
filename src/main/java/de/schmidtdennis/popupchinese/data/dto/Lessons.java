@@ -36,6 +36,8 @@ public class Lessons {
     
     public String thumbnail;
 
+    public String audio;
+
     @JsonIgnore
     @OneToMany(mappedBy = "lessonId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     public List<UserLessons> userLessons;
