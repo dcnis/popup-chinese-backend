@@ -1,5 +1,9 @@
 package de.schmidtdennis.popupchinese.controller;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +34,8 @@ import de.schmidtdennis.popupchinese.data.repository.VocabularyRepository;
 import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
 import de.schmidtdennis.popupchinese.data.requests.UserLessonRequest;
 
+import javax.sql.DataSource;
+
 @RestController
 @CrossOrigin(origins = { "https://heroku-popup-chinese-frontend.herokuapp.com", "http://localhost:8080" })
 public class PopupChineseController {
@@ -39,16 +45,18 @@ public class PopupChineseController {
     private final DialogsRepository dialogsRepository;
     private final VocabularyRepository vocabularyRepository;
     private final UserLessonsRepository userLessonsRepository;
+    private final DataSource dataSource;
 
     @Autowired
     public PopupChineseController(UserRepository userRepository, LessonRepository lessonRepository,
             DialogsRepository dialogsRepository, VocabularyRepository vocabularyRepository,
-            UserLessonsRepository userLessonsRepository) {
+            UserLessonsRepository userLessonsRepository, DataSource dataSource) {
         this.userRepository = userRepository;
         this.lessonRepository = lessonRepository;
         this.dialogsRepository = dialogsRepository;
         this.vocabularyRepository = vocabularyRepository;
         this.userLessonsRepository = userLessonsRepository;
+        this.dataSource = dataSource;
     }
 
     @GetMapping("/getUsers")
@@ -186,6 +194,31 @@ public class PopupChineseController {
         // update user-parent and lesson-parent, therefore create userlesson CASCADE.ALL
 
         userRepository.save(user);
+    }
+
+    @PostMapping("searchLesson")
+    public List<Lessons> searchLessonsByName(String searchTerm) throws SQLException {
+
+        String sql = "SELECT * from lessons WHERE title LIKE :searchTerm";
+        Connection c = dataSource.getConnection();
+        PreparedStatement p = c.prepareStatement(sql);
+        p.setString(1, searchTerm);
+        ResultSet rs = p.executeQuery(sql);
+
+        List<Lessons>  list = new ArrayList<>();
+
+        while(rs.next()){
+            Lessons lesson = new Lessons();
+            lesson.id = rs.getInt("id");
+            lesson.audio = rs.getString("audio");
+            lesson.discussion = rs.getString("discussion");
+            lesson.thumbnail = rs.getString("thumbnail");
+            lesson.title = rs.getString("title");
+
+            list.add(lesson);
+        }
+
+        return list;
     }
 
 }
