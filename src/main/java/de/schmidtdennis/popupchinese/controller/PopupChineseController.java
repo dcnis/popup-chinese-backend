@@ -196,8 +196,8 @@ public class PopupChineseController {
         userRepository.save(user);
     }
 
-    @PostMapping("searchLesson")
-    public List<Lessons> searchLessonsByName(String searchTerm) throws SQLException {
+    @GetMapping("searchLesson")
+    public List<Lessons> searchLessonsByName(@RequestParam String searchTerm) throws SQLException {
 
         String sql = "SELECT * from lessons WHERE title LIKE :searchTerm";
         Connection c = dataSource.getConnection();
