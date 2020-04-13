@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers(HttpMethod.GET, "/getLesson/**")
             .antMatchers(HttpMethod.GET, "/getDialogsByLessonId/**")
             .antMatchers(HttpMethod.GET, "/getVocabularyByLessonId/**")
-            .antMatchers(HttpMethod.GET, "/searchLesson?**");
+            .antMatchers(HttpMethod.GET, "/searchLesson?searchTerm=**");
         }
         
 }
