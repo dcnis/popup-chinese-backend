@@ -1,14 +1,9 @@
 package de.schmidtdennis.popupchinese.config;
 
-import com.okta.spring.boot.oauth.Okta;
-
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 
@@ -33,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers(HttpMethod.GET, "/getLesson/**")
             .antMatchers(HttpMethod.GET, "/getDialogsByLessonId/**")
             .antMatchers(HttpMethod.GET, "/getVocabularyByLessonId/**")
-            .antMatchers(HttpMethod.GET, "/searchLesson?searchTerm=**");
+            .antMatchers(HttpMethod.GET, "/searchLesson/**");
         }
         
 }
