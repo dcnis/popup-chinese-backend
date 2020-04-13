@@ -1,12 +1,9 @@
 package de.schmidtdennis.popupchinese.controller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import de.schmidtdennis.popupchinese.data.dto.*;
+import de.schmidtdennis.popupchinese.data.repository.*;
+import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
+import de.schmidtdennis.popupchinese.data.requests.UserLessonRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,27 +11,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import de.schmidtdennis.popupchinese.data.dto.Dialogs;
-import de.schmidtdennis.popupchinese.data.dto.Lessons;
-import de.schmidtdennis.popupchinese.data.dto.UserAccount;
-import de.schmidtdennis.popupchinese.data.dto.UserLessons;
-import de.schmidtdennis.popupchinese.data.dto.Vocabulary;
-import de.schmidtdennis.popupchinese.data.repository.DialogsRepository;
-import de.schmidtdennis.popupchinese.data.repository.LessonRepository;
-import de.schmidtdennis.popupchinese.data.repository.UserLessonsRepository;
-import de.schmidtdennis.popupchinese.data.repository.UserRepository;
-import de.schmidtdennis.popupchinese.data.repository.VocabularyRepository;
-import de.schmidtdennis.popupchinese.data.requests.DifficultyRequest;
-import de.schmidtdennis.popupchinese.data.requests.UserLessonRequest;
+import org.springframework.web.bind.annotation.*;
 
-import javax.sql.DataSource;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = { "https://heroku-popup-chinese-frontend.herokuapp.com", "http://localhost:8080" })
@@ -45,18 +25,16 @@ public class PopupChineseController {
     private final DialogsRepository dialogsRepository;
     private final VocabularyRepository vocabularyRepository;
     private final UserLessonsRepository userLessonsRepository;
-    private final DataSource dataSource;
 
     @Autowired
     public PopupChineseController(UserRepository userRepository, LessonRepository lessonRepository,
             DialogsRepository dialogsRepository, VocabularyRepository vocabularyRepository,
-            UserLessonsRepository userLessonsRepository, DataSource dataSource) {
+            UserLessonsRepository userLessonsRepository) {
         this.userRepository = userRepository;
         this.lessonRepository = lessonRepository;
         this.dialogsRepository = dialogsRepository;
         this.vocabularyRepository = vocabularyRepository;
         this.userLessonsRepository = userLessonsRepository;
-        this.dataSource = dataSource;
     }
 
     @GetMapping("/getUsers")
@@ -128,9 +106,7 @@ public class PopupChineseController {
         Assert.notNull(request.getEmail(), "user email must not be null!");
         Assert.notNull(request.getLessonId(), "lessonId must not be null!");
 
-        List<UserLessons> userLessons = new ArrayList<>();
-
-        userLessons = userLessonsRepository.findByEmailAndLessonId(request.getEmail(), request.getLessonId());
+        List<UserLessons> userLessons = userLessonsRepository.findByEmailAndLessonId(request.getEmail(), request.getLessonId());
 
         if (userLessons.size() != 1){
              throw new IllegalArgumentException("No lesson found with given email and lessonId");
@@ -196,29 +172,9 @@ public class PopupChineseController {
         userRepository.save(user);
     }
 
-    @GetMapping("searchLesson/{searchTerm}")
-    public List<Lessons> searchLessonsByName(@PathVariable String searchTerm) throws SQLException {
-
-        String sql = "SELECT * from lessons WHERE title LIKE :searchTerm";
-        Connection c = dataSource.getConnection();
-        PreparedStatement p = c.prepareStatement(sql);
-        p.setString(1, searchTerm);
-        ResultSet rs = p.executeQuery(sql);
-
-        List<Lessons>  list = new ArrayList<>();
-
-        while(rs.next()){
-            Lessons lesson = new Lessons();
-            lesson.id = rs.getInt("id");
-            lesson.audio = rs.getString("audio");
-            lesson.discussion = rs.getString("discussion");
-            lesson.thumbnail = rs.getString("thumbnail");
-            lesson.title = rs.getString("title");
-
-            list.add(lesson);
-        }
-
-        return list;
+    @PostMapping("searchLesson")
+    public List<Lessons> searchLessonsByName(@RequestBody SearchDTO search) {
+        return lessonRepository.findByTitleIgnoreCaseContaining(search.getSearchTerm());
     }
 
 }

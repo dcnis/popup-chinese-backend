@@ -21,14 +21,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         }
 
         @Override
-        public void configure(WebSecurity web) throws Exception {
+        public void configure(WebSecurity web) {
             web.ignoring()
             .antMatchers(HttpMethod.OPTIONS, "/**")
             .antMatchers(HttpMethod.POST, "/findLessonsByDifficulty")
             .antMatchers(HttpMethod.GET, "/getLesson/**")
             .antMatchers(HttpMethod.GET, "/getDialogsByLessonId/**")
             .antMatchers(HttpMethod.GET, "/getVocabularyByLessonId/**")
-            .antMatchers(HttpMethod.GET, "/searchLesson/**");
+            .antMatchers(HttpMethod.POST, "/searchLesson");
         }
         
 }
