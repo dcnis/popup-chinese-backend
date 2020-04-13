@@ -20,22 +20,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             http
             .authorizeRequests()
                 .anyRequest().authenticated()
-                // .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                // .antMatchers(HttpMethod.POST, "/findLessonsByDifficulty").permitAll()
-                // .antMatchers(HttpMethod.GET, "/getLesson/**").permitAll()
-                // .antMatchers("/getVocabularyByLessonId/**").authenticated()
-            // .anyRequest().authenticated()
-            // .authorizeRequests()
-            // .antMatchers("/findLessonsByDifficulty", "/getLesson/**", "getVocabularyByLessonId/**", "getDialogsByLessonId/**").permitAll()
-            // .anyRequest().permitAll();
             .and()
             .oauth2ResourceServer().jwt();
-
             http.cors().and().csrf().disable();
-
-            // force a non-empty response body for 401's to make the response more browser friendly
-            // Okta.configureResourceServer401ResponseBody(http);
-
         }
 
         @Override
@@ -45,7 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers(HttpMethod.POST, "/findLessonsByDifficulty")
             .antMatchers(HttpMethod.GET, "/getLesson/**")
             .antMatchers(HttpMethod.GET, "/getDialogsByLessonId/**")
-            .antMatchers(HttpMethod.GET, "/getVocabularyByLessonId/**");
+            .antMatchers(HttpMethod.GET, "/getVocabularyByLessonId/**")
+            .antMatchers(HttpMethod.GET, "/searchLesson/**");
         }
         
 }
